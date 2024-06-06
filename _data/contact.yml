@@ -9,7 +9,7 @@
 - type: email
   icon: "fas fa-envelope"
   noblank: true # open link in current tab
-  url: 'zjhong6666@gmail.com'
+  url: 'mailto:zjhong6666@gmail.com'
 
 # - type: rss
 #  icon: "fas fa-rss"
