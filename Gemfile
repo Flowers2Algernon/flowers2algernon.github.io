@@ -2,10 +2,10 @@
 
 source "https://rubygems.org"
 
-gem "jekyll-theme-chirpy", "~> 7.0", ">= 7.0.1"
+gemspec
 
 group :test do
   gem "html-proofer", "~> 5.0"
 end
 
-gem "tzinfo", "~> 2.0"
+gem "jekyll-archives", path: ".gems/jekyll-archives"

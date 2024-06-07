@@ -1,3 +1,9 @@
+---
+date: 2024-06-05 9:42:38 +0800
+categories: [Java, Use]
+tags: [java]     # TAG names should always be lowercase
+---
+
 The question is [following](https://leetcode.com/problems/find-all-groups-of-farmland/?envType=daily-question&envId=2024-04-20):
 
 
@@ -8,7 +14,7 @@ This question can use a simple two-for loop + DFS to solve, it's not the point I
 Here is the question BackGround:
 ```java
 public int[][] findFarmland(int[][] land) {  
-				boolean[][] visited = new boolean[land.length][land[0].length];             
+        boolean[][] visited = new boolean[land.length][land[0].length];             
         ArrayList<Integer[]> integers = new ArrayList<>();                          
         Integer[] temp = new Integer[4];                                            
         int count=0;                                                                
@@ -56,7 +62,7 @@ public int[][] findFarmland(int[][] land) {
            integers.add(findEachLandCornerElements(land,i,j,visited,temp));
            count++;
            // System.out.println(Arrays.deepToString(integers.toArray()));
-					}
+           }
          }
        }
 }      
