@@ -12,7 +12,7 @@
   noblank: true # 在当前页面打开链接
 
 - type: portfolio
-  icon: "iconfont icon-rss"
+  icon: "iconfont icon-mastodon"
   noblank: true
   url: "https://flowers2algernon.github.io/portfolio/"
 
