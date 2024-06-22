@@ -76,7 +76,7 @@ The output is:
 
 here is not a continuous number, so actually in Java the two-dimensional array memory space is like the following:
 
- ![](..\assets\images\062102.png)
+ ![](assets\images\062102.png)
 
 ### Binary Search
 
@@ -161,7 +161,7 @@ The force solution uses the two-for-loop method.
 
 The better solution is to use Fast-slow Pointers.
 
-![](..\assets\images\062103.gif)
+![](assets\images\062103.gif)
 
 ```java
 class Solution {
