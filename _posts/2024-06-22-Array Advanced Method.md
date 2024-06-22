@@ -25,7 +25,7 @@ Two-point method
 
 The given array is sorted; after the square, the negative elements square might be greater than the opposite one.
 
-![062201](062201)
+![062201](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062201.gif)
 
 So we first square the array, then use two points, one point on the left, and one point on the right, in the loop, compare the left and right's numbers, and put the greater one to the new int[] (in the new array, the point is at the end)
 
@@ -70,7 +70,7 @@ prefixSum[2] = a[0] + a[1] + a[2]
 prefixSum[i] = a[0] + a[1] + ... + a[i]
 ```
 
-![062202](062202)
+![062202](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images//062202.png)
 
 So, we can simply use the following loop to get a prefix array:
 
@@ -116,7 +116,7 @@ A sliding window is a process that constantly adjusts the start and end position
 
 In the force solution, we use two for loops to describe this constant search interval process, but how do we use one for loop to complete this function?
 
-![062203](062203)
+![062203](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images//062203.gif)
 
 Two points need to be discussed:
 
