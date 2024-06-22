@@ -15,7 +15,7 @@ Note:
 
 Since the array's memory space is contiguous, we have to move other factors when we need to add or delete some factor in the array.
 
-![](assets/images/062101.png)
+![](https://github.com/Flowers2Algernon/flowers2algernon.github.io/blob/main/assets/images/062101.png)
 
 For example, when we need to delete an element with a subscript of 3, it is inevitable that we need to move the following factors. 
 
@@ -76,7 +76,7 @@ The output is:
 
 here is not a continuous number, so actually in Java the two-dimensional array memory space is like the following:
 
- ![](assets\images\062102.png)
+ ![](https://github.com/Flowers2Algernon/flowers2algernon.github.io/blob/main/assets/images/062102.png)
 
 ### Binary Search
 
@@ -161,7 +161,7 @@ The force solution uses the two-for-loop method.
 
 The better solution is to use Fast-slow Pointers.
 
-![](assets\images\062103.gif)
+![](https://github.com/Flowers2Algernon/flowers2algernon.github.io/blob/main/assets/images/062103.gif)
 
 ```java
 class Solution {
