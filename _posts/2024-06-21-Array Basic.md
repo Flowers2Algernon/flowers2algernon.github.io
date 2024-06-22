@@ -15,7 +15,7 @@ Note:
 
 Since the array's memory space is contiguous, we have to move other factors when we need to add or delete some factor in the array.
 
-![](..\assets\images\062101.png)
+![](assets/images/062101.png)
 
 For example, when we need to delete an element with a subscript of 3, it is inevitable that we need to move the following factors. 
 
