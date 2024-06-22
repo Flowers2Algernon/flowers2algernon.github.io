@@ -8,18 +8,18 @@ tags: [java, array]     # TAG names should always be lowercase
 
 An array is a collection of the same type of data stored in a contiguous memory space.
 
-note: 
+Note: 
 
 - array's subscripts start at 0.
-- the memory space of the array is contiguous.
+- The Array's memory space of the array is contiguous.
 
-Since the array's memory space is contiguous, when we need to add or delete some factor in the array, we have to move other factors.
+Since the array's memory space is contiguous, we have to move other factors when we need to add or delete some factor in the array.
 
-![](C:\Users\Jinhong\Pictures\需用\062101.png)
+![](..\assets\images\062101.png)
 
 For example, when we need to delete an element with a subscript of 3, it is inevitable that we need to move the following factors. 
 
-the array's elements cannot be deleted, only overwritten.
+The array's elements cannot be deleted; they are only overwritten.
 
 ##### Two-dimensional array memory space arrangement problem
 
@@ -40,16 +40,18 @@ int main() {
 }
 ```
 
-the output is:
+The output is:
 
 ```
 0x7ffee4065820 0x7ffee4065824 0x7ffee4065828
 0x7ffee406582c 0x7ffee4065830 0x7ffee4065834
 ```
 
-note that the address is hexadecimal, so in C++, the two-dimensional array memory space is a continuous line.
+Note that the address is hexadecimal, so in C++, the two-dimensional array memory space is a continuous line.
 
 ###### In Java
+
+{% raw %}
 
 ```java
 public static void test_arr() {
@@ -61,7 +63,9 @@ public static void test_arr() {
 }
 ```
 
-the output is:
+{% endraw %}
+
+The output is:
 
 ```
 [I@7852e922
@@ -72,7 +76,7 @@ the output is:
 
 here is not a continuous number, so actually in Java the two-dimensional array memory space is like the following:
 
- <img src="C:\Users\Jinhong\Pictures\需用\062102.png" style="zoom: 67%;" />
+ ![](..\assets\images\062102.png)
 
 ### Binary Search
 
@@ -80,82 +84,108 @@ here is not a continuous number, so actually in Java the two-dimensional array m
 
 this problem's prerequisites are:
 
-- there are no duplicate elements in the array
-- array is sorted
+- There are no duplicate elements in the array.
+- The array is sorted.
 
-the main reason you can't solve this problem is don't understand the definition of interval.
+You can't solve this problem because you don't understand the definition of interval.
 
-##### 二分法的两种写法：
+##### Two methods of binary search： regarding right to left interval
 
-###### 第一种写法
+###### The first method
 
-定义target在一个左闭右闭的区间里，也就是**[left, right]**
+Define the target in a left-closed and right-closed interval， which means**[left, right]**
 
-区间的定义决定了二分法的代码应该怎么写：
+The intervals definition decides how we write the code：
 
-- While(left<=right)要用<=，因为left==right是有意义的，所以使用<=
-- if(nuts[middle]>target) ,则right要赋值为middle-1,因为当前middle位置已经排除了不是target，所以接下来要查找的左区间结束下标位置就是middle-1
+- While(left<=right) need to use **<=**，Since left==right meaningful，so we use **<=**
+- If (nuts[middle]>target), then the right needs to be defined as middle-1, since currently, the middle's location is not equal to the target， the next position to look for is the end subscript of the right-left interval, which is middle-1.
 
 ```c++
-// 版本一
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
         int left = 0;
-        int right = nums.size() - 1; // 定义target在左闭右闭的区间里，[left, right]
-        while (left <= right) { // 当left==right，区间[left, right]依然有效，所以用 <=
-            int middle = left + ((right - left) / 2);// 防止溢出 等同于(left + right)/2
+        int right = nums.size() - 1; // define target in [left, right] interval
+        while (left <= right) { 
+            int middle = left + ((right - left) / 2);// equal to (left + right)/2
             if (nums[middle] > target) {
-                right = middle - 1; // target 在左区间，所以[left, middle - 1]
+                right = middle - 1; // target in left interval，so [left, middle - 1]
             } else if (nums[middle] < target) {
-                left = middle + 1; // target 在右区间，所以[middle + 1, right]
+                left = middle + 1; // target in right interval, so [middle + 1, right]
             } else { // nums[middle] == target
-                return middle; // 数组中找到目标值，直接返回下标
+                return middle; 
             }
         }
-        // 未找到目标值
+        // don't find the target
         return -1;
     }
 };
 ```
 
-- 时间复杂度：O(log n)
-- 空间复杂度：O(1)
+- Time complexity：O(log n)
+- Space complexity：O(1)
 
-###### 第二种写法
+###### The second method
 
-如果target是在一个左闭右开的区间，也就是[left,right)
+If the target is in a left-close and right-open interval， means [left, right)
 
-- While(left<right) 此时while条件为<, 因为left==right在左闭右开区间中是没有意义的
-- if(nuts[middle]>target) 时，right更新为middle, 因为当前nuts[middle]!=target, 去左区间继续寻找，而寻找的左区间时左闭右开区间，所以right更新为middle，因为下一个查询区间不会去比较右端点即nuts[middle]的值
+- While(left<right) , use**<**, since left==right has no meaning in [left, right)
+- If (nuts[middle]>target),  since the current `nuts[middle]` is not equal to the target, continue searching in the left interval. The left interval is a left-closed, right-open interval, so update `right` to `middle`, because the next search interval will not compare the value of the right endpoint.
 
 ```c++
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
         int left = 0;
-        int right = nums.size(); // 定义target在左闭右开的区间里，即：[left, right)
-        while (left < right) { // 因为left == right的时候，在[left, right)是无效的空间，所以使用 <
+        int right = nums.size(); // define target in [left, right)
+        while (left < right) { // Because when `left` equals `right`, the interval `[left, right)` is an invalid space, so use `<`.
             int middle = left + ((right - left) >> 1);
             if (nums[middle] > target) {
-                right = middle; // target 在左区间，在[left, middle)中
+                right = middle; // target in [left, middle)
             } else if (nums[middle] < target) {
-                left = middle + 1; // target 在右区间，在[middle + 1, right)中
+                left = middle + 1; // target in [middle + 1, right)
             } else { // nums[middle] == target
-                return middle; // 数组中找到目标值，直接返回下标
+                return middle; 
             }
         }
-        // 未找到目标值
         return -1;
     }
 };
 ```
 
-https://leetcode.com/problems/remove-element/
+### Remove element
 
-No 27 remove element
+[No 27 ]: https://leetcode.com/problems/remove-element/
 
-暴力解法是两个for循环
+The force solution uses the two-for-loop method.
 
-优化解法是使用快慢指针
+The better solution is to use Fast-slow Pointers.
+
+![](..\assets\images\062103.gif)
+
+```java
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int left = 0;
+        int right = nums.length-1;
+        while(left<=right){
+            if(nums[left]!=val){
+                left++;
+            }else{
+                if(nums[right]==val){
+                    right--;
+                }else{
+                    //replace
+                    nums[left]=nums[right];
+                    left++;
+                    right--;
+                }
+            }
+        }
+        return left;
+    }
+}
+```
+
+
 
