@@ -10,14 +10,14 @@ An array is a collection of the same type of data stored in a contiguous memory 
 
 Note: 
 
-- array's subscripts start at 0.
-- The Array's memory space of the array is contiguous.
+- Array's subscripts start at 0.
+- The array's memory space is contiguous.
 
 Since the array's memory space is contiguous, we have to move other factors when we need to add or delete some factor in the array.
 
-![](https://github.com/Flowers2Algernon/flowers2algernon.github.io/blob/main/assets/images/062101.png)
+![overwritten](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062101.png)
 
-For example, when we need to delete an element with a subscript of 3, it is inevitable that we need to move the following factors. 
+For example, when we need to delete an element with a subscript of 3, we inevitably need to move the following factors. 
 
 The array's elements cannot be deleted; they are only overwritten.
 
@@ -76,7 +76,7 @@ The output is:
 
 here is not a continuous number, so actually in Java the two-dimensional array memory space is like the following:
 
- ![](https://github.com/Flowers2Algernon/flowers2algernon.github.io/blob/main/assets/images/062102.png)
+ ![in Java the two-dimensional array memory space](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062102.png)
 
 ### Binary Search
 
@@ -161,7 +161,7 @@ The force solution uses the two-for-loop method.
 
 The better solution is to use Fast-slow Pointers.
 
-![](https://github.com/Flowers2Algernon/flowers2algernon.github.io/blob/main/assets/images/062103.gif)
+![Fast-slow Pointers](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062103.gif)
 
 ```java
 class Solution {
