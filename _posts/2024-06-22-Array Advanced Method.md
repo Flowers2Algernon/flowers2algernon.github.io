@@ -6,6 +6,8 @@ tags: [java, array]     # TAG names should always be lowercase
 
 #### Squares of a Sorted Arrays
 
+> Given an integer array `nums` sorted in **non-decreasing** order, return *an array of **the squares of each number** sorted in non-decreasing order*.
+
 The ordinary method is to square each number in the array and sort the array; in this situation, the time complexity is O(n+nlogn).
 
 ```java
