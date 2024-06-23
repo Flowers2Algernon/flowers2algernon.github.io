@@ -120,17 +120,17 @@ In the force solution, we use two for loops to describe this constant search int
 
 ![062203](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images//062203.gif)
 
-Two points need to be discussed:
+Three points need to be discussed:
 
-1. Is the start or end position the indexing of the for loop?
+- Is the start or end position the indexing of the for loop?
 
 ​	End position.
 
-2. What is the window inside the sliding window?
+- What is the window inside the sliding window?
 
-​	The window is a series of fulfilment subarrays (each window's elements sum greater than the target).
+​	The window is a subarray (In this problem, a great window means the window's elements sum greater than the target).
 
-3. When should the start position move?
+- When should the start position move?
 
 ​	Once the window's elements sum greater than the target, we move the start position point to decrease the window.
 
@@ -155,5 +155,72 @@ class Solution {
         return result == Integer.MAX_VALUE?0:result;
     }
 }
+```
+
+#### Spiral Matrix II
+
+> Given a positive integer `n`, generate an `n x n` `matrix` filled with elements from `1` to `n2` in spiral order.
+>
+> Example Input and Output:
+>
+> ![062301](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images//062301.jpg)
+>
+> ```
+> Input: n = 3
+> Output: [[1,2,3],[8,9,4],[7,6,5]]
+> ```
+
+We need to consider four points in this rectangle. Are all these turn points handled by the current or next edge?
+
+Be in mind: **In each loop, we maintain the rules for handling each edge**.
+
+Here, we use the [start, end) rule, which means we deal with the start point and not process the end point.
+
+![062302](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images//062302.png)
+
+```java
+public int[][] generateMatrix(int n) {
+        int startX = 0;
+        int startY = 0;//define each while loop's begin location
+        int loop = n / 2;//define while loop times
+        int count = 1;//the value assigned to each cell in the loop
+        int i = 0;//i represents the line number in each loop
+        int j = 0;//j represents the collum number in each loop
+        int offset = 1;//offset is used to control the length of each edge traversal in each loop, plus 1 in each loop (plus 1 means that the right boundary of the loop is contracted by one bit).
+        int[][] result = new int[n][n];
+        while (loop-- > 0) {
+            i = startX;
+            j = startY;
+            //Four edges are processed in each loop, using four for loops to process them, and left-closed-right-open to process them
+            //upper rows
+            for (; j < n - offset; j++) {
+                result[i][j] = count;
+                count++;
+            }
+            //right column
+            for (; i < n - offset; i++) {
+                result[i][j] = count;
+                count++;
+            }
+            //lower rows
+            for (; j > startY; j--) {
+                result[i][j] = count;
+                count++;
+            }
+            //left column
+            for (; i > startX; i--) {
+                result[i][j] = count;
+                count++;
+            }
+            startY++;
+            startX++;
+            offset++;
+        }
+        //To handle the case where n is an odd number, the middle-most cell needs to be assigned a separate value
+        if (n % 2 != 0) {
+            result[n / 2][n / 2] = count++;
+        }
+        return result;
+    }
 ```
 
