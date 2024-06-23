@@ -72,7 +72,7 @@ prefixSum[2] = a[0] + a[1] + a[2]
 prefixSum[i] = a[0] + a[1] + ... + a[i]
 ```
 
-![062202](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images//062202.png)
+<img src="https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images//062202.png" alt="062202" style="zoom:67%;" />
 
 So, we can simply use the following loop to get a prefix array:
 
@@ -118,7 +118,7 @@ A sliding window is a process that constantly adjusts the start and end position
 
 In the force solution, we use two for loops to describe this constant search interval process, but how do we use one for loop to complete this function?
 
-![062203](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images//062203.gif)
+<img src="https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images//062203.gif" alt="062203" style="zoom:80%;" />
 
 Three points need to be discussed:
 
@@ -163,12 +163,12 @@ class Solution {
 >
 > Example Input and Output:
 >
-> ![062301](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images//062301.jpg)
->
 > ```
-> Input: n = 3
+>Input: n = 3
 > Output: [[1,2,3],[8,9,4],[7,6,5]]
 > ```
+> 
+> ![062301](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images//062301.jpg)
 
 We need to consider four points in this rectangle. Are all these turn points handled by the current or next edge?
 
@@ -176,7 +176,7 @@ Be in mind: **In each loop, we maintain the rules for handling each edge**.
 
 Here, we use the [start, end) rule, which means we deal with the start point and not process the end point.
 
-![062302](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images//062302.png)
+<img src="https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images//062302.png" alt="062302" style="zoom: 33%;" />
 
 ```java
 public int[][] generateMatrix(int n) {
