@@ -188,14 +188,14 @@ In fact, we only need to change the direction of the 'next' pointers in the link
 
 Previously, the head node of the linked list was the element 1. After the reversal, the head node is the element 5. No nodes were added or deleted; only the direction of the 'next' pointers was changed.
 
+###### Use two pointer methods to reverse:
+
 ![062501](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062501.gif)
 
-Steps:
-
-- Define a `cur` pointer that points to the head node, then define a `pre` pointer and initialize it to null.
+- Define a `cur` pointer that points to the head node, then define a `pre` pointer and initialise it to null.
 - Begin to reverse, use `tmp` pointer to store `cur.next` nodes.
 - Use a loop to traverse the whole linked list.
-- Finally, `cur` pointed to null, the loop is end, and the linked list is reversed, now we just need return `pre`.
+- Finally, `cur` pointed to null, the loop is ended, and the linked list is reversed, now we just need to return `pre`
 
 ```java
 class Solution {
@@ -204,7 +204,7 @@ class Solution {
         ListNode tem;//used to store the node regarding to cur.next
         ListNode cur = head;
         ListNode pre = null;
-        while(cur!=null){
+        while(cur != null){
             tem = cur.next;
             cur.next = pre;
             //move next
@@ -212,6 +212,26 @@ class Solution {
             cur = tem;
         }
         return pre;
+    }
+}
+```
+
+###### Use recursion to reverse a linked list:
+
+```java
+class Solution {
+    public ListNode reverseList(ListNode head) {
+       return reverse(null,head);
+    }
+    
+    public ListNode reverse(ListNode pre,ListNode cur){
+        if(cur==null) return pre;
+        ListNode tmp = cur.next;//store cur.next node
+        cur.next = pre;//reverse
+        // can compare it with the code for the two-pointer method. The recursive approach below essentially performs these two steps.
+        //pre = cur;
+        //cur = tmp;
+        return reverse(cur,tmp);
     }
 }
 ```
