@@ -100,12 +100,12 @@ To insert a node after a given node in a linked list, we need to:
 
 ![062508](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062508.png)
 
-#### Linked List compare to Array?
+#### Linked List compared to Array?
 
-|             | Insert/delete (Time complex) | Insert/delete (Space complex) | Situation                                                    |
-| ----------- | ---------------------------- | ----------------------------- | ------------------------------------------------------------ |
-| Array       | O(n)                         | O(1)                          | Data is fixed, frequent searching, infrequent insertions and deletions. |
-| Linked List | O(1)                         | O(n)                          | Data is not fixed, infrequent searching, frequent insertions and deletions. |
+|             | Insert/delete (Time complexity) | Insert/delete (Time complexity) | Situation                                                    |
+| ----------- | ------------------------------- | ------------------------------- | ------------------------------------------------------------ |
+| Array       | O(n)                            | O(1)                            | Data is fixed, frequent searching, infrequent insertions and deletions. |
+| Linked List | O(1)                            | O(n)                            | Data is not fixed, infrequent searching, frequent insertions and deletions. |
 
 
 
