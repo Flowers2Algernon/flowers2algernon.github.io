@@ -1,5 +1,5 @@
 ---
-date: 2024-06-22 22:42:38 +0800
+date: 2024-06-25 22:42:38 +0800
 categories: [DSA, Linked List]
 tags: [dsa, linked list]     # TAG names should always be lowercase
 ---
