@@ -1,5 +1,5 @@
 ---
-date: 2024-06-26 22:42:38 +0800
+date: 2024-06-26 12:42:38 +0800
 categories: [DSA, Linked List]
 tags: [dsa, linked list]     # TAG names should always be lowercase
 ---
@@ -12,10 +12,10 @@ tags: [dsa, linked list]     # TAG names should always be lowercase
 
 Use normal simulation:
 
-Initially, the temporary pointer 'cur' points  to the dummy head node. 
+Initially, the temporary pointer 'cur' points to the dummy head node. 
 
 - The first step is to move the temporary pointer 'cur' to point to the second node.
-- The second step is to make the 'next' pointer of the first node point to cur's next(which was saved in the first step).
+- The second step is making the 'next' pointer of the first node point to cur's next(saved in the first step).
 - The third step is to make the pointer of the second node point to the first node.
 
 ![062602](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062602.png)
@@ -26,13 +26,11 @@ Initially, the temporary pointer 'cur' points  to the dummy head node.
 
 ![062605](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062605.png)
 
+now we have this:
+
 ![062606](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062606.png)
 
-now we got this:
-
-![062607](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062607.png)
-
-and if you need go to next loop, just set cur = cur.next.next;
+And if you need go to next loop, just set cur = cur.next.next;
 
 ```java
 class Solution {
@@ -106,7 +104,7 @@ class Solution {
         for(int i=0;i<=n;i++){
             fast = fast.next;
         }
-        //fast and slow pointers move simulatiously
+        //fast and slow pointers move simultaneously
         while(fast!=null){
             fast = fast.next;
             slow = slow.next;
@@ -117,4 +115,30 @@ class Solution {
 }
 ```
 
-simultaneously
+### Intersection of Two Linked Lists
+
+> Given the heads of two singly linked-lists `headA` and `headB`, return *the node at which the two lists intersect*. If the two linked lists have no intersection at all, return `null`.
+>
+> For example, the following two linked lists begin to intersect at node `c1`:
+>
+> ![062613](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062613.png)
+>
+> The test cases are generated such that there are no cycles anywhere in the entire linked structure.
+>
+> **Note** that the linked lists must **retain their original structure** after the function returns.
+>
+> - `skipA` - The number of nodes to skip ahead in `listA` (starting from the head) to get to the intersected node.
+> - `skipB` - The number of nodes to skip ahead in `listB` (starting from the head) to get to the intersected node.
+>
+> Example:
+>
+> ![062614](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062614.png)
+>
+> ```
+> Input: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3
+> Output: Intersected at '8'
+> Explanation: The intersected node's value is 8 (note that this must not be 0 if the two lists intersect).
+> From the head of A, it reads as [4,1,8,4,5]. From the head of B, it reads as [5,6,1,8,4,5]. There are 2 nodes before the intersected node in A; There are 3 nodes before the intersected node in B.
+> - Note that the intersected node's value is not 1 because the nodes with value 1 in A and B (2nd node in A and 3rd node in B) are different node references. In other words, they point to two different locations in memory, while the nodes with value 8 in A and B (3rd node in A and 4th node in B) point to the same location in memory.
+> ```
+
