@@ -461,6 +461,134 @@ B:     b1 → b2 → b3 → null
 
 Since `a == b` is true (both refer to null), end loop `while(a != b)`, return `a = null`.
 
-
-
 Notice that if `list A` and `list B` have the **same length**, this solution will terminate in **no more than 1 traversal**; if both lists have **different lengths**, this solution will terminate in **no more than 2 traversals** -- in the second traversal, swapping `a` and `b` synchronizes `a` and `b` before the end of the second traversal. By synchronizing `a` and `b` I mean both have the same remaining steps in the second traversal so that it's guaranteed for them to reach the first intersection node, or reach null at the same time (technically speaking, in the same iteration) -- see **Case 2 (Have Intersection & Different Len)** and **Case 4 (Have No Intersection & Different Len)**.
+
+
+
+### Linked List Cycle II
+
+> Given the `head` of a linked list, return *the node where the cycle begins. If there is no cycle, return* `null`.
+>
+> There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the `next` pointer. Internally, `pos` is used to denote the index of the node that tail's `next` pointer is connected to (**0-indexed**). It is `-1` if there is no cycle. **Note that** `pos` **is not passed as a parameter**.
+>
+> **Do not modify** the linked list.
+>
+> Example:
+>
+> ![062616](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062616.png)
+>
+> ```
+> Input: head = [3,2,0,-4], pos = 1
+> Output: tail connects to node index 1
+> Explanation: There is a cycle in the linked list, where tail connects to the second node.
+> ```
+
+The main points being examined are:
+
+- Determining whether a linked list has a cycle.
+
+We can use the fast and slow pointer method. 
+
+Define two pointers, 'fast' and 'slow', starting from the head node. The fast pointer moves `two` nodes at a time, while the slow pointer moves one node at a time. If the fast and slow pointers meet during this process, it indicates that the linked list has a cycle.
+
+Why is it that if the fast pointer moves two nodes at a time and the slow pointer moves one node at a time, they will definitely meet within the cycle if there is one, rather always missing each other?
+
+We can draw cycle, and then let the fast pointer start chasing the slow pointer from any node.
+
+![062618](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062618.png)
+
+The fast and slow pointers each take one more step, and then fast and slow meet. This is because fast moves two steps while slow moves one step. In relation to slow, fast is actually approaching slow one node at a time, so fast will definitely overlap with slow.
+
+![062601j](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062601.gif)
+
+- If there is a cycle, how to find the entrance of this cycle.
+
+Suppose the number of nodes from the head node to the cycle entrance node is x.
+
+The number of nodes from the cycle entrance node to the node where the fast pointer meets the slow pointer is y.
+
+The number of nodes from the meeting point back to the cycle entrance node is z.
+
+![062619](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062619.png)
+
+Then, at the point of meeting: The number of nodes the slow pointer has traversed is: `x+y.`
+
+The number of nodes the fast pointer has traversed is: `x+y+n(y+z)`, where n is the number of complete cycles the fast pointer has made in the ring before meeting the slow pointer, and `(y+z)` is the number of nodes in one complete cycle.
+
+Since the fast pointer moves two nodes in one step, while the slow pointer moves one node in one step, the number of nodes traversed by the fast pointer = the number of nodes traversed by the slow pointer * 2.
+
+` (x+y) * 2 = x + y + n (y+z)`
+
+-> `x + y = n (y + z)`
+
+We need to find the entrance node - regard as `x`
+
+-> `x = n (y + z) - y = (n-1) (y+z) + z` , here n >1
+
+What this formula mean?
+
+Let's first take the case where n is 1 as an example, meaning that the fast pointer meets the slow pointer after making one complete cycle in the ring.
+
+When n is 1, the formula simplifies to `x = z`.
+
+**This means that if we start one pointer from the head node and another pointer from the meeting point, and these two pointers each move one node at a time, then the node where these two pointers meet is the entrance node of the cycle.**
+
+![062602j](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062602.gif)
+
+So what if n is greater than 1?
+
+Actually, this situation is the same as when n is 1. The only different is that the fast pointers make `n-1` additional cycles in the ring before meeting the slow pointer. The meeting point is still the entrance node of the cycle.
+
+```java
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+          //When the fast and slow pointers meet, at this point, start searching simultaneously from the head and the meeting point until they meet.
+            if(fast == slow){
+                ListNode head1 = head;
+                ListNode head2 = fast;
+                while(head != fast){
+                    head = head.next;
+                    fast = fast.next;
+                }
+                return fast;
+            }
+        }
+        return null;
+    }
+}
+```
+
+###### Why at the first meeting point in the cycle, slow's passed nodes is `x+y` , rather than ` x + some number of cycle lengths + y`?
+
+First, when slow enters the cycle, fast must have already entered the cycle.
+
+If slow enters the cycle entrance and fast is also at the cycle entrance, then if we unroll this cycle into a straight line, it would look like the following diagram:
+
+![062620](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062620.png)
+
+It can be seen that if slow and fast start walking from the cycle entrance at the same time, they will definitely meet at the third cycle entrance. Slow will have walk ed on cycle, and fast will have walked two cycles.
+
+The key point is that when slow enters the cycle, fast must be at some position within the cycle, as shown in the diagram:
+
+![062621](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062621.png)
+
+When fast pointer walked at the cycle entrance 3, it already passed `k + n` nodes, slow correspondonly pass `(k + n) / 2` nodes.
+
+Since `k < n` (see above image)
+
+->` (k + n) / 2 < n`
+
+This means **the slow pointer must not walked at cycle entrance 3, meanwhile the fast pointer already at cycle entrance 3.**
+
+What this mean?
+
+This means **they have already met in the cycle where the slow points starts walking **
+
+ Why can't fast jump over slow? 
+
+Mentioned above, **the fast pointer moves one node at a time relative to slow, so it's impossible for it to jump over**.
