@@ -142,3 +142,325 @@ class Solution {
 > - Note that the intersected node's value is not 1 because the nodes with value 1 in A and B (2nd node in A and 3rd node in B) are different node references. In other words, they point to two different locations in memory, while the nodes with value 8 in A and B (3rd node in A and 4th node in B) point to the same location in memory.
 > ```
 
+###### Method one:
+
+In simple terms, it's about finding the pointer to the intersection node of two linked lists. Be note that the intersection is not about equal values, but about equal pointers.
+
+Assume we have two linked list as following, pointer curA point to A's head node, curB point to B's head node.
+
+![062615](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062615.png)
+
+We calculate the lengths of the two linked lists and find the difference between these lengths. Then we move curA to the position where it aligns with the end of curB, as shown in the following fiture:
+
+![062616](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062616.png)
+
+At this point, we can compare whether curA and curB are the same. If they are not the same, move curA and curB backward simultaneously. Is curA==curB is encountered, the intersection is found.
+
+Otherwise, exit the loop and return a null pointer.
+
+```java
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode curA = headA;
+        ListNode curB = headB;
+        int lenA = 0, lenB = 0;
+        while(curA != null){
+            curA = curA.next;
+            lenA++;
+        }
+        while(curB != null){
+            curB = curB.next;
+            lenB++;
+        }
+        curA = headA;
+        curB = headB;
+        //let curA and lenA is the longer or greater
+        if (lenB > lenA){
+            //swap curA and curB
+            ListNode temp = curA;
+            curA = curB;
+            curB = temp;
+            
+            //swap lenA and lenB
+            int tmpLen = lenA;
+            lenA = lenB;
+            lenB = tmpLen;
+        }
+        //figure the diff between lenA and lenB
+        int gap = lenA - lenB;
+        //let curA and curB in the same position
+        while(gap-- > 0){
+            curA = curA.next;
+        }
+        //traver curA and curB, if equals, return
+        while(curA != null){
+            if(curA == curB){
+                return curA;
+            }
+            curA = curA.next;
+            curB = curB.next;
+        }
+        return null;
+    }
+}
+```
+
+###### Method two:
+
+We can use two iterations to do that. In the first iteration, we will reset the pointer of one linkedlist to the head of another linkedlist after it reaches the tail node. In the second iteration, we will move two pointers until they points to the same node. Our operations in first iteration will help us counteract the difference. So if two linkedlist intersects, the meeting point in second iteration must be the intersection point. If the two linked lists have no intersection at all, then the meeting pointer in second iteration must be the tail node of both lists, which is null.
+
+```java
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if(headA == null || headB == null) return null;
+        
+        ListNode a = headA;
+        ListNode b = headB;
+        
+        while(a != b){
+            a = a == null? headB : a.next;
+            b = b == null? headA : b.next;
+        }
+        return a;
+    }
+}
+```
+
+**Visualization of this solution:**
+**Case 1 (Have Intersection & Same Len):**
+
+```
+       a
+A:     a1 → a2 → a3
+                   ↘
+                     c1 → c2 → c3 → null
+                   ↗            
+B:     b1 → b2 → b3
+       b
+```
+
+```
+            a
+A:     a1 → a2 → a3
+                   ↘
+                     c1 → c2 → c3 → null
+                   ↗            
+B:     b1 → b2 → b3
+            b
+```
+
+```
+                 a
+A:     a1 → a2 → a3
+                   ↘
+                     c1 → c2 → c3 → null
+                   ↗            
+B:     b1 → b2 → b3
+                 b
+```
+
+```
+A:     a1 → a2 → a3
+                   ↘ a
+                     c1 → c2 → c3 → null
+                   ↗ b            
+B:     b1 → b2 → b3
+```
+
+Since `a == b` is true, end loop `while(a != b)`, return the intersection node `a = c1`.
+
+**Case 2 (Have Intersection & Different Len):**
+
+```
+            a
+A:          a1 → a2
+                   ↘
+                     c1 → c2 → c3 → null
+                   ↗            
+B:     b1 → b2 → b3
+       b
+```
+
+```
+                 a
+A:          a1 → a2
+                   ↘
+                     c1 → c2 → c3 → null
+                   ↗            
+B:     b1 → b2 → b3
+            b
+```
+
+```
+A:          a1 → a2
+                   ↘ a
+                     c1 → c2 → c3 → null
+                   ↗            
+B:     b1 → b2 → b3
+                 b
+```
+
+```
+A:          a1 → a2
+                   ↘      a
+                     c1 → c2 → c3 → null
+                   ↗ b           
+B:     b1 → b2 → b3
+```
+
+```
+A:          a1 → a2
+                   ↘           a
+                     c1 → c2 → c3 → null
+                   ↗      b           
+B:     b1 → b2 → b3
+```
+
+```
+A:          a1 → a2
+                   ↘                a = null, then a = b1
+                     c1 → c2 → c3 → null
+                   ↗           b           
+B:     b1 → b2 → b3
+```
+
+```
+A:          a1 → a2
+                   ↘ 
+                     c1 → c2 → c3 → null
+                   ↗                b = null, then b = a1 
+B:     b1 → b2 → b3
+       a
+```
+
+```
+            b         
+A:          a1 → a2
+                   ↘ 
+                     c1 → c2 → c3 → null
+                   ↗
+B:     b1 → b2 → b3
+            a
+```
+
+```
+                 b         
+A:          a1 → a2
+                   ↘ 
+                     c1 → c2 → c3 → null
+                   ↗ 
+B:     b1 → b2 → b3
+                 a
+```
+
+```
+A:          a1 → a2
+                   ↘ b
+                     c1 → c2 → c3 → null
+                   ↗ a
+B:     b1 → b2 → b3
+```
+
+Since `a == b` is true, end loop `while(a != b)`, return the intersection node `a = c1`.
+
+**Case 3 (Have No Intersection & Same Len):**
+
+```
+       a
+A:     a1 → a2 → a3 → null
+B:     b1 → b2 → b3 → null
+       b
+```
+
+```
+            a
+A:     a1 → a2 → a3 → null
+B:     b1 → b2 → b3 → null
+            b
+```
+
+```
+                 a
+A:     a1 → a2 → a3 → null
+B:     b1 → b2 → b3 → null
+                 b
+```
+
+```
+                      a = null
+A:     a1 → a2 → a3 → null
+B:     b1 → b2 → b3 → null
+                      b = null
+```
+
+Since `a == b` is true (both refer to null), end loop `while(a != b)`, return `a = null`.
+
+**Case 4 (Have No Intersection & Different Len):**
+
+```
+       a
+A:     a1 → a2 → a3 → a4 → null
+B:     b1 → b2 → b3 → null
+       b
+```
+
+```
+            a
+A:     a1 → a2 → a3 → a4 → null
+B:     b1 → b2 → b3 → null
+            b
+```
+
+```
+                 a
+A:     a1 → a2 → a3 → a4 → null
+B:     b1 → b2 → b3 → null
+                 b
+```
+
+```
+                      a
+A:     a1 → a2 → a3 → a4 → null
+B:     b1 → b2 → b3 → null
+                      b = null, then b = a1
+```
+
+```
+       b                   a = null, then a = b1
+A:     a1 → a2 → a3 → a4 → null
+B:     b1 → b2 → b3 → null
+```
+
+```
+            b                   
+A:     a1 → a2 → a3 → a4 → null
+B:     b1 → b2 → b3 → null
+       a
+```
+
+```
+                 b
+A:     a1 → a2 → a3 → a4 → null
+B:     b1 → b2 → b3 → null
+            a
+```
+
+```
+                      b
+A:     a1 → a2 → a3 → a4 → null
+B:     b1 → b2 → b3 → null
+                 a
+```
+
+```
+                           b = null
+A:     a1 → a2 → a3 → a4 → null
+B:     b1 → b2 → b3 → null
+                      a = null
+```
+
+Since `a == b` is true (both refer to null), end loop `while(a != b)`, return `a = null`.
+
+
+
+Notice that if `list A` and `list B` have the **same length**, this solution will terminate in **no more than 1 traversal**; if both lists have **different lengths**, this solution will terminate in **no more than 2 traversals** -- in the second traversal, swapping `a` and `b` synchronizes `a` and `b` before the end of the second traversal. By synchronizing `a` and `b` I mean both have the same remaining steps in the second traversal so that it's guaranteed for them to reach the first intersection node, or reach null at the same time (technically speaking, in the same iteration) -- see **Case 2 (Have Intersection & Different Len)** and **Case 4 (Have No Intersection & Different Len)**.
