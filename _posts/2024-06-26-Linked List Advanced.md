@@ -39,8 +39,8 @@ class Solution {
     public ListNode swapPairs(ListNode head) {
         ListNode dummy = new ListNode(0,head);//dummy head node
         ListNode cur = dummy;//Initial the cur point to the dummy head node
-        while(cur.next!=null&&cur.next.next!=null){
-        ListNode first= cur.next;//first node
+        while(cur.next != null && cur.next.next != null){
+        ListNode first = cur.next;//first node
         ListNode second = cur.next.next;//second node
             //Three steps to go
             //first step
@@ -57,3 +57,64 @@ class Solution {
 }
 ```
 
+### Remove Nth Node From End of List
+
+> Given the `head` of a linked list, remove the `nth` node from the end of the list and return its head.
+>
+> Example Input & Output:
+>
+> ![062607](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062607.jpg)
+>
+> ```
+> Input: head = [1,2,3,4,5], n = 2
+> Output: [1,2,3,5]
+> ```
+
+Typical fast and slow pointer problem.
+
+Define two pointers. Let fast move n+1 steps first, then have fast and slow move synchronously until fast reaches Null. At this point, slow's next is the element to be deleted, then delete it."
+
+We can go through the following steps to solve this question:
+
+- Define fast and slow pointers, with initial values set for the dummy head node.
+
+![062608](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062608.png)
+
+- The fast pointer first moves `n+1` steps. Why not n? Since only this way, when moving simultaneously, the slow pointer can point to the node just before the one that needs to be deleted(or simply remember to move the fast point to the one that needs to be deleted).
+
+![062609](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062609.png)
+
+- Fast and slow pointers move simultaneously until the fast pointer points to the end.
+
+![062610](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062610.png)
+
+![062611](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062611.png)
+
+- Finally, delete the node next to the one pointed to by the slow pointer.
+
+![062612](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062612.png)
+
+Here is the code:
+
+```java
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummy = new ListNode(0,head);
+        ListNode fast = dummy;
+        ListNode slow = dummy;
+        //move fast pointer n+1 steps
+        for(int i=0;i<=n;i++){
+            fast = fast.next;
+        }
+        //fast and slow pointers move simulatiously
+        while(fast!=null){
+            fast = fast.next;
+            slow = slow.next;
+        }
+        slow.next = slow.next.next;
+        return dummy.next;
+    }
+}
+```
+
+simultaneously
