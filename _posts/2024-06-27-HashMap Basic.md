@@ -71,3 +71,16 @@ Therefore, the table size must be greater than the data size; otherwise, there w
 To summarise, when we need to quickly determine whether an element appears in a set or other box, we should consider using the hash table
 
 However, hashing trades space for time, as we need to use additional arrays, sets, or maps to store the data in order to achieve fast lookups.
+
+#### Valid Anagram
+
+> Given two strings `s` and `t`, return `true` *if* `t` *is an anagram of* `s`*, and* `false` *otherwise*.
+>
+> An **Anagram** is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+>
+> Example:
+>
+> ```
+> Input: s = "anagram", t = "nagaram"
+> Output: true
+> ```
