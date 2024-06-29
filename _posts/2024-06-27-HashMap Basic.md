@@ -84,3 +84,49 @@ However, hashing trades space for time, as we need to use additional arrays, set
 > Input: s = "anagram", t = "nagaram"
 > Output: true
 > ```
+
+An array is a simple hash table; in this problem, the string only contains lowercase characters, so we can define an array to record the frequency of characters in string s.
+
+How big of an array do we need? We can define an array called record with a size of 26, initialised to 0.
+
+For example, given s = "aee", t = "eae";
+
+![062907](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062907.gif)
+
+Define an array called record to keep track of the frequency of characters in string s.
+
+We need to map characters to array indices, which are essentially hash table indices. Since the ASCII values for characters 'a' to 'z' are 26 consecutive numbers, character 'a' maps to index 0, and correspondingly, character 'z' maps to index 25.
+
+When traversing string s, we only need to perform an add one operation on the element at s[i] minus corresponding characters without remembering the ASCII value of characters. We just need to calculate a relative value.
+
+Then, when traversing string t, we perform a minus one operation on the array index value mapped to each character in t.
+
+Finally, we check if any element in the record array is not zero. If so, it means either string s or t has extra or missing characters, if so, we return false.
+
+If all elements in the record array are zero, it means strings s and t are anagrams, so we return true.
+
+```java
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        int[] characters = new int[26];
+      //Note: here we can't use Integer[] Since the original value of Integer[] is null.
+        for (char c : s.toCharArray()) {
+            characters[c-'a'] = characters[c-'a']+1;
+        }
+        for (char c : t.toCharArray()) {
+            characters[c-'a'] = characters[c-'a']-1;
+        }
+        for (Integer character : characters) {
+            if (character!=0){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+#### Intersection of Two Arrays
+
+> Given two integer arrays `nums1` and `nums2`, return *an array of their intersection*. Each element in the result must be **unique** and you may return the result in **any order**.
+
