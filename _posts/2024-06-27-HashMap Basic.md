@@ -129,4 +129,33 @@ class Solution {
 #### Intersection of Two Arrays
 
 > Given two integer arrays `nums1` and `nums2`, return *an array of their intersection*. Each element in the result must be **unique** and you may return the result in **any order**.
+>
+> Example:
+>
+> ```
+> Input: nums1 = [1,2,2,1], nums2 = [2,2]
+> Output: [2]
+> ```
+
+```java
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i : nums1) {
+            if (map.containsKey(i)){
+                map.put(i,map.get(i)+1);
+            }else {
+                map.put(i,1);
+            }
+        }
+        HashSet<Integer> integers = new HashSet<>();
+        for (int i : nums2) {
+            if (map.containsKey(i)){
+                integers.add(i);
+            }
+        }
+        return integers.stream().mapToInt(Integer::intValue).toArray();
+    }
+}
+```
 
