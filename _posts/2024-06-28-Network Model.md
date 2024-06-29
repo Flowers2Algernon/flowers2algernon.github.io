@@ -4,7 +4,7 @@ categories: [Network]
 tags: [network, tcp/ip]     # TAG names should always be lowercase
 ---
 
-#### The TCP/IP five network model
+### The TCP/IP five network model
 
 |      |    Layer    |      Protocal      |     Content     |   Address   |
 | :--: | :---------: | :----------------: | :-------------: | :---------: |
@@ -52,7 +52,7 @@ Sorts out which client and server programs are supposed to get that data.
 
 #### Application
 
- There are lots of different protocols at thislevel; they're application-specificc.
+ There are lots of different protocols at this level; they're application-specific.
 
 
 
@@ -74,13 +74,13 @@ You can think of layers like different aspects of a package being delivered.
 
 - The application layer is the contents of the package itself.
 
-
+### Transport
 
 Cables: Connect different devices to each other, allowing data to be transmitted over them.
 
 Most network cables used today can be split into two categories:
 
-- copper
+- ###### copper
 
 Copper cables are the most common form of networking cable.
 
@@ -96,7 +96,7 @@ The most common forms of copper twisted-pair cables used in networking are **Cat
 
 Cat5e cables have mostly replaced those older Cat5 cables because their internals reduce Crosstalk. **Crosstalk **is when an electrical pulse on one wire is accidentally detected on another wire. So the receiving end can't understand the data causing a network error.
 
-- fiber
+- ###### fiber
 
 ![062904](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062904.jpg)
 
