@@ -148,6 +148,7 @@ class Solution {
                 map.put(i,1);
             }
         }
+      //Note: Here can't use ArrayList since we need no repeatable result.
         HashSet<Integer> integers = new HashSet<>();
         for (int i : nums2) {
             if (map.containsKey(i)){
@@ -155,6 +156,57 @@ class Solution {
             }
         }
         return integers.stream().mapToInt(Integer::intValue).toArray();
+    }
+}
+```
+
+#### Happy Number
+
+>Write an algorithm to determine if a number `n` is happy.
+>
+>A **happy number** is a number defined by the following process:
+>
+>- Starting with any positive integer, replace the number by the sum of the squares of its digits.
+>- Repeat the process until the number equals 1 (where it will stay), or it **loops endlessly in a cycle** which does not include 1.
+>- Those numbers for which this process **ends in 1** are happy.
+>
+>Return `true` *if* `n` *is a happy number, and* `false` *if not*.
+
+The problem states that there will be an infinite loop, which means that during the summation process, the sum will repeat.
+
+When we need to quickly determine whether an element appears in a set, we should consider using a hash method.
+
+Therefore, we use a hash method to determine if this sum has appeared before. If it repeats, we return false; Otherwise, we continue until the sum becomes 
+
+```java
+public class Solution202 {
+    public boolean isHappy(int n) {
+        if (n==1){
+            return true;
+        }
+      //Use HashSet rather than ArrayList
+        HashSet<Integer> set = new HashSet<>();
+        while (true){
+            int sum = getSum(n);
+            if (sum==1){
+                return true;
+            }
+            if (set.contains(sum)){
+                return false;
+            }
+            set.add(sum);
+            n = sum;
+        }
+    }
+  //Calculate each loop's n
+    public int getSum(int n){
+        int sum = 0;
+        while (n>0){
+            int digit = n%10;
+            sum += digit*digit;
+            n = n/10;
+        }
+        return sum;
     }
 }
 ```
