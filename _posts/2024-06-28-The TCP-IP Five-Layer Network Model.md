@@ -94,11 +94,72 @@ The most common forms of copper twisted-pair cables used in networking are **Cat
 
 ![062903](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062903.png)
 
-Cat5e cables have mostly replaced those older Cat5 cables because their internals reduce Crosstalk. **Crosstalk **is when an electrical pulse on one wire is accidentally detected on another wire. So the receiving end isn't able to understand the data causing a network error.
+Cat5e cables have mostly replaced those older Cat5 cables because their internals reduce Crosstalk. **Crosstalk **is when an electrical pulse on one wire is accidentally detected on another wire. So the receiving end can't understand the data causing a network error.
 
 - fiber
 
-Fiber cables contain individual optical fibers, which are tiny tubes made out of glass about the width of a human hair.
+![062904](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062904.jpg)
+
+Fibre cables contain individual optical fibres, which are tiny tubes made out of glass about the width of human hair.
 
 ![062901j](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062901.gif)
+
+Unlike copper, which uses electrical voltages, fiber cables use pulses of light to represent the ones and zeros of the underlying data.
+
+Fiber cables can generally transport data quicker than copper cables can, but they're much more expensive and fragile.
+
+FIber can also transport data over much longer distances than copper can without suffering potential data loss.
+
+#### Hub
+
+A hub is a physical layer device allowing for connections from many computers simultaneously.
+
+![062902j](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062902.gif)
+
+All the devices connected to a hub will end up talking to all other devices at the same time. 
+
+It's up to each system connected to the hub to determine if the incoming data was meant for them or to ignore it if it isn't. This causes a lot of noise on the network and creates what's called a collision domain.
+
+![062905](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062905.png)
+
+A collision domain is a network segment where only one device can communicate at a time.
+
+#### Network switch
+
+Since the hub is really slowing down network communications and is the primary reason hubs are rare. A much more common way of connecting many computers is with a more sophisticated device known as a network switch.
+
+A switch is very similar to a hub since you can connect many devices to it so they can communicate.
+
+The **difference** is that while a hub is a layer one or physical layer device, a switch is a layer two or data link device.
+
+![062903j](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062903.gif) 
+
+This means that a switch can inspect the contents of the ethernet protocol data being sent around the network, determine which system the data is intended for and then only send that data to that one system.
+
+This reduces or even completely eliminates the size of collision domains on a network.
+
+#### Routers
+
+Hubs and switches are the primary devices used to connect computers on a single network, usually referred to as a LAN or a Local Area Network. But we often want to send or receive data to computers on other networks. This is where routers come into play.
+
+**A router is a device that knows how to forward data between independent networks.** 
+
+- A hub is a layer one device, and a switch is a layer two device.
+- A router operates at layer three, a network layer.
+
+Just like a switch can inspect Ethernet data to determine where to send things, a router can inspect IP data to determine where to send things. Routers store internal tables containing information about how to route traffic between lots of different networks all over the world.
+
+![062906](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062906.png)
+
+A core router usually has many different connections to many other routers. **Routers share data with each other via a protocol known as BGP or Border Gateway Protocol. That lets them learn about the most optimal paths to forward traffic.**
+
+The internet is incredibly large and complicated, and routers are global guides for getting traffic to the right places.
+
+#### Severs and Clients
+
+![062904j](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062904.gif) 
+
+A server is something that provides data to something requesting that data.
+
+The thing receiving the data is referred to as a client.
 
