@@ -75,3 +75,47 @@ public class Solution454 {
 > Input: ransomNote = "a", magazine = "b"
 > Output: false
 > ```
+
+Use HashMap:
+
+```java
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        HashMap<Character, Integer> map = new HashMap<>();
+        for (char c : magazine.toCharArray()) {
+            map.put(c,map.getOrDefault(c,0) + 1);
+        }
+        for (char c : ransomNote.toCharArray()) {
+            if (!map.containsKey(c)){
+                return false;
+            }
+            map.put(c, map.get(c) - 1);
+            if (map.get(c) < 0){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+Since `ransomNote` and `magazine` only consist of lowercase English letters. We can use an array to solve this rather than a hash map, reducing time and space complexity.
+
+```java
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        int[] arr = new int[26];
+        for (char c : magazine.toCharArray()) {
+            arr[c-'a']++;
+        }
+        for (char c : ransomNote.toCharArray()) {
+            arr[c-'a']--;
+            if (arr[c-'a'] < 0){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
