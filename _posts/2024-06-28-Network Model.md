@@ -38,6 +38,19 @@ It allows devices on either end of a link to understand that an electrical charg
 
 Through this seemingly simple technique, modern networks are capable of moving 10 billion ones and zeros across a single network cable every second.
 
+##### Twisted pair cabling and duplexing
+
+- Twisted pair cabling is the most common type for connecting computing devices.
+- It consists of pairs of copper wires twisted together to protect against interference.
+- These cables allow for duplex communication, meaning information can flow in both directions.
+- Full duplex allows devices to communicate simultaneously in both directions.
+
+![070502](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070502.png)
+
+- Half-duplex means communication is possible in both directions, but only one device can communicate at a time.
+
+
+
 
 
 
