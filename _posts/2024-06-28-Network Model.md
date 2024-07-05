@@ -28,7 +28,15 @@ These ones and zeros sense across networks at the lowest level are what make up 
 
 ##### Modulation
 
+Ones and zeros are sent across those network cables through a process called modulation.
 
+Modulation is a way of varying the voltage of this charge moving across the cable. When used for computer networks, this kind of modulation is more specifically known as line coding.
+
+![070501](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070501.png)
+
+It allows devices on either end of a link to understand that an electrical charge in a certain state is a zero and another state is one.
+
+Through this seemingly simple technique, modern networks are capable of moving 10 billion ones and zeros across a single network cable every second.
 
 
 
