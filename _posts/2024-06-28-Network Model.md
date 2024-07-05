@@ -63,6 +63,52 @@ Define: Responsible for defining a common way of interpreting these signals so n
 
 The **Ethernet** standards also define a protocol responsible for getting data to nodes on the same network or link.
 
+The protocol most widely used to send data across individual links is known as ethernet. Ethernet and the data link layer provide a means for software at higher levels of the stack to send and receive data.
+
+###### Data link layer what used for?
+
+One of the primary purposes of this layer is to essentially abstract away the need for any other layers to care about the physical layer and what hardware is in use.
+
+For example, your web browser dosen't need to know if it's running on a device connected via twisted pair or wireless connection, it just need the underlying layers to send and receive data for it.
+
+###### What Ethernet do?
+
+Background: A collision domain is a network segment where only one device can speak at a time. This is because all data in a collision domain is sent to all the nodes connected to it. 
+
+If two computers were to send data across the wire at the same time, this would result in literal collisions of the electrical current representing our ones and zeros, leaving the end result unintelligible.
+
+Ethernet as a protocol solve this problem by using a technique known as carrier sense multiple access with collision detection.
+
+###### CSMA/CD
+
+Used to determine when the communications channels are clear, and when a device is free to transmit data.
+
+The way CSMA/CD works is actually pretty simple. If there's no data currently being transmitted on the network segment, a node will feel free to send data. If it turns out that two or more computers end up trying to send data at the same time, the computers detect this collision and stop sending data.
+
+Each device involved with the collision then waits a random interval of time before trying to send data again. This random interval, helps to prevent all the computers involved in the collision from colliding again the next time they try to transmit anything.
+
+When a network segment is a collision domain, it means that all devices on that segment receive all communication across the entire segment. This means we need a way to identify which node the transmission was actually meant for.
+
+This is where something known as a media access control address or MAC address comes into play.
+
+###### MAC address
+
+Meaning: A globally unique identifier attached to and individual network interface.
+
+It's a 48-bit number normally represented by six groupings of two hexadecimal numbers.
+
+Another way to reference each group of numbers in a MAC address is an octet.
+
+In octet, in computer networking is any number that can be represented by 8-bits. In this case, two hexdecimal digits can representsent the same numbers that 8-bits can.
+
+A MAC address is split into two sections. The first three octets of a MAC address are known as the organizetionally unique ideatifier or OUI. These are assigned to individual hardware manufacturers by the IEEE,  means that you can always identify the manufacturer of a network interface purely by its MAC address.
+
+The last three octets of a MAC address can be assigned in any way that the manufacturer would like, with the condition that they only assign each possible address once to keep all MAC addresses globally unique.
+
+![070503](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070503.png)
+
+Ethernet uses MAC addressses to ensure that the data it sends has both an address for the machine that sent the transmission, as well was, the one that the transmission was intended for. In this way, even on a network segment acting as a single collision domain, each node on that network knows when traffic is intended for it.
+
 
 
 
