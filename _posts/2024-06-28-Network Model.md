@@ -49,11 +49,13 @@ Through this seemingly simple technique, modern networks are capable of moving 1
 
 - Half-duplex means communication is possible in both directions, but only one device can communicate at a time.
 
+###### Why twisted?
 
+Originally, telephone and early data cables included two copper wires,  one for transmissiontting data and one for receiving data. The two wires laid parallel to one another.
 
+This configuration was affected by electromagneticgnetic interference(EMI), radio frequency interference(RFI), and crosstalk between the two copper wires.
 
-
-
+One of the initial engineering steps to resolve these issues involved twisting the wire pair together, which reduce some of the extra noise on the lines.
 
 #### Data link layer
 
