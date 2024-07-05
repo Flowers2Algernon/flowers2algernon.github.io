@@ -20,7 +20,17 @@ Define: Represents the physical devices that interconnect computers
 
 ![062901](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062901.png)
 
- 
+ The physical layer consists of devices and means of transmitting bits across computer networks.
+
+A bit is the smallest representation of data that a computer can understand. It's zero or one.
+
+These ones and zeros sense across networks at the lowest level are what make up the frames and packets of data that we'll learn about when we cover the other layers.
+
+##### Modulation
+
+
+
+
 
 
 
