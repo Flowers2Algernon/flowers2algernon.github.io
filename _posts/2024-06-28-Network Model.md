@@ -275,11 +275,25 @@ The IP options field is usually followed by a padding field since the IP options
 
 The padding field is just a series of zeroes used to ensure the header is the correct total size.
 
+##### Address class system
 
+A way of defining how the global IP address space is split up.
 
+![070603](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070603.png)
 
+There are three types of classes:
 
+- Class A
 
+Class A addresses are those where the first octet is used for the network ID and the last three are used for the host ID.
+
+- Class B
+
+Class B addresses are where the first two octets are used for the network ID and the second two are used for the host ID.
+
+- Class C
+
+Class C addresses are those where the first three octets are used for the network ID and only the final octet is used for the host ID.
 
 #### Transport layer
 
