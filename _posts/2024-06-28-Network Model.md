@@ -14,6 +14,8 @@ tags: [network, tcp/ip]     # TAG names should always be lowercase
 |  2   |  Data Link  |  Ethernet, Wi-Fi   |     Frames      | MAC address |
 |  1   |  Physical   |        n/a         |      Bits       |     n/a     |
 
+![070602](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070602.png)
+
 #### Physical layer
 
 Define: Represents the physical devices that interconnect computers
@@ -223,7 +225,55 @@ An IP address assigned this way is known as a dynamic IP address.
 
 The opposite of this is knowm as a static IP address, which must be configured on a node manually. In most cases, static IP addresses are reserved for servers and network devices while dynamic IP addresses are reserved for clients.
 
-##### IP datagram
+#### IP datagram
+
+IP datagram is a highly structured series of fields that are strictly defined.
+
+##### IP datagram header
+
+![070601](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070601.png)
+
+The very first field is four bits and indicates what version of Internet Protocol is being used. The most common version of IP is version 4 or IPv4.
+
+After the version field we have the header length field. This is also a four bit field that declares how long the entire header is.
+
+Next we have the service type field, these 8 bits can be used to specify details about quality of service or QoS technologies. The important takeaway about QoS is that there are services that allow routers to make decisions about which IP datagram maybe more important than others.
+
+The next field is a 16 bit field known as the total length field. It's used for exactly what it sounds like to indicate the total length of the IP datagram it's attached to.
+
+The maximum size of a single datagram is the largest number you can represent with 16 bits. If the total amount of data that needs to be sent is larger than what can fit in a single datagram, the IP layer needs to split this data up into many individual packets.
+
+###### Flag field
+
+Used to indicate if a datagram is allowed to be fragmented, or to indicate that the datagram has already been fragmented.
+
+###### Fragmentation
+
+Is the process of taking a single IP datagram and splitting it up into several smaller datagrams.
+
+Time to live (TTL) field
+
+An 8-bit field that indicates how many router hops a datagram can travelse before it's thrown away.
+
+The main purpose of this field is to make sure that when there's a miss configuration in routing that causes an endless loop. Datagrams don't spend all eternity trying to reach their destination. An endless loop could be when router A thinks router B is the next hop and router B thinks router A is the net hop.
+
+###### Protocol field
+
+Another 8-bits field that contains data about what transport layer protocol is being used.
+
+###### Header checksum field
+
+A checksum of the contents of the entire IP datagram header.  It's functions very much like the ethernet checksum field.
+
+###### IP options field 
+
+An optional field and is used to set special characteristics for datagrams promarily used for testing purposes.
+
+###### Padding field
+
+The IP options field is usually followed by a padding field since the IP options field is both optional and variable in length.
+
+The padding field is just a series of zeroes used to ensure the header is the correct total size.
 
 
 
