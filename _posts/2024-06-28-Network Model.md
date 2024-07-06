@@ -109,9 +109,93 @@ The last three octets of a MAC address can be assigned in any way that the manuf
 
 Ethernet uses MAC addressses to ensure that the data it sends has both an address for the machine that sent the transmission, as well was, the one that the transmission was intended for. In this way, even on a network segment acting as a single collision domain, each node on that network knows when traffic is intended for it.
 
+##### Types of ethernet transmission
 
+###### Unicast
 
+A unicast transmission is always meant for just one receiving address.
 
+At the ethernet level this is done by looking at a special bit in the destination MAC address.
+
+If the least significant bit in the first octet of a destination address is set to zero, it means that thernet frame is intended for only the destination address. This means it would be sent to all devices on the collision domain, but only actually received and processed by the intended destination.
+
+###### Multicast
+
+If the least significant bit in the first octet of a destination address is set to one, it means you're dealing with a multicast Frame.
+
+![070504](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070504.png)
+
+A multicast frame is similarly set to all devices on the local network segment. What's different is that it will be accepted or discarded by each device depending on criteria aside from their own hardware MAC address.
+
+###### Broadcast
+
+The third type of ethernet transmission is known as broadcast. In ethernet, broadcast is sent to every single device on a LAN.
+
+This is accomplished by using a special destination known as a broadcast address. The ethernet broadcast address is all F's: `FF:FF:FF:FF:FF:FF`.
+
+Ethernet braodcasts are used so that devices can learn more about each other.
+
+#### Dissecting an Ethernet Frame
+
+##### Data packet
+
+A data packet is an all-encompassing term that represents any single set of binary data being sent across a network link.
+
+The term data packet isn't tied to any specific layer or technology, it just represents a concept, one set of data being sent from point A to point B.
+
+Data packets at the Ethernet level are known as Ethernet frames.
+
+An Ethernet frame is a highly structrued collection of information presented in a specific order. This way, network interfaces at the physical layer can convert a stream of bits traveling across a link into meaningful data or vice versa.
+
+Almost all sections of an Ethernet frame are mandatory, and most of them have a fixed size.
+
+![070505](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070505.png)
+
+###### Preamble
+
+The first part of an Ethernet frame is known as the preamble. A preamble is eight bytes or 64 bits long, and can itself be split into two sections. 
+
+The first seven bytes are a series of alternating ones and zeros. These act partially as a buffer between frames and can also be used by the network interfaces to synchronize internal clocks thry use to regulate the speed at which they send data.
+
+This last byte in the preamble is known as the SFD, or start frame delimiter. This signals to a receiving device that the preamble is over and that the actual frame contents will now follow.
+
+###### Desination MAC address
+
+Immediately following the start frame delimiter, comes the destination MAC address.
+
+This is the hardware address of the intended recipient, which is then followed by the source MAC address or where the frame originated from. 
+
+Don't forget that each MAC address is 48 bits or six bytes long. 
+
+###### Ethernet frame 
+
+It's 16 bits long and used to describe the protocol of the contents of the frame.
+
+###### VLAN header
+
+Indicates that the frame itself is what's called a VLAN frame.
+
+If a VLAN header is present, the Ethertype field follows it.
+
+![070501g](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070501.gif)
+
+VLAN: Virtual LAN, A technique that lets you have multiple logical LANs operating on the same physical equipment.
+
+###### Plyload
+
+In networking terms, is the actual data being transported, which is everything that isn't a header.
+
+###### Frame check sequence
+
+A 4-byte (or 32-bit) number that represents a checksum value for the entire frame.
+
+This checksum value is calculated by perfoming what's known as a cyclical redundancy check against the frame.
+
+##### What's next?
+
+On an localarea network or LAN, nodes can communicate with each other through their physical MAC address. This works well on small scale because switches can quickly learn the MAC addresses connected to each other ports to four transmissions appropriately.
+
+But MAC addressing isn't scheme that scales well. Every single network interface on the planet has a unique MAC address, and they aren't ordered in any systematic way. There's no way of knowing where on the planet a certain MAC address might be at any one point in time, so it's not ideal for communicating across distances.
 
 #### Network layer
 
@@ -120,6 +204,30 @@ Define: Allows different networks to communicate with each other through devices
 A collection of networks connected together through routers, the most famous of these being the internet.
 
 IP is the heart of the internet and most smaller networks worldwide.
+
+IP addresses are a 32-bit long numbers made up of four octets and each octet is normally described in decimal numbers. Eight bits of data or a single octet can represent all decimal numbers from 0-255.
+
+The important thing to know for now is that IP address are distributed in large sections to various organizations and companies instead of being determined by hardware vendors. This means that IP addresses are more tierarchical and easier to store data about than physical addresses are.
+
+Think of IBM, which owns every single IP that has the Number 9 as the first octet. At a very high level, this menas that is an Internet router needs to figure out where to send a data packet intended for the IP address 90.0.0.1, that router only has to kknow to get it to one of IBM's routers. That router can handle the rest of the delivery process from there.
+
+###### Dynamic IP address
+
+It's imporatant to call out that IP addresses belong to the networks, not to the devices attached to those networks. Your laptop will always have the same MAC address no matter where you use it. but it'll have a different IP address assigned to it at an Internet cafe than it would when you're at home.
+
+On many modern networks, you can connect a new device and an IP address will be assigned to it automatically through a technology known as DYnamic Host Configuration Protocol.
+
+An IP address assigned this way is known as a dynamic IP address.
+
+###### Static IP address
+
+The opposite of this is knowm as a static IP address, which must be configured on a node manually. In most cases, static IP addresses are reserved for servers and network devices while dynamic IP addresses are reserved for clients.
+
+##### IP datagram
+
+
+
+
 
 
 
