@@ -4,7 +4,7 @@ categories: [Network]
 tags: [network, tcp/ip]     # TAG names should always be lowercase
 ---
 
-### The TCP/IP five network model
+## The TCP/IP five network model
 
 |      |    Layer    |      Protocal      |     Content     |   Address   |
 | :--: | :---------: | :----------------: | :-------------: | :---------: |
@@ -16,7 +16,7 @@ tags: [network, tcp/ip]     # TAG names should always be lowercase
 
 ![070602](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070602.png)
 
-#### Physical layer
+### Physical layer
 
 Define: Represents the physical devices that interconnect computers
 
@@ -59,7 +59,7 @@ This configuration was affected by electromagneticgnetic interference(EMI), radi
 
 One of the initial engineering steps to resolve these issues involved twisting the wire pair together, which reduce some of the extra noise on the lines.
 
-#### Data link layer
+### Data link layer
 
 Define: Responsible for defining a common way of interpreting these signals so network devices can communicate.
 
@@ -199,7 +199,7 @@ On an localarea network or LAN, nodes can communicate with each other through th
 
 But MAC addressing isn't scheme that scales well. Every single network interface on the planet has a unique MAC address, and they aren't ordered in any systematic way. There's no way of knowing where on the planet a certain MAC address might be at any one point in time, so it's not ideal for communicating across distances.
 
-#### Network layer
+### Network layer
 
 Define: Allows different networks to communicate with each other through devices known as routers.
 
@@ -295,13 +295,115 @@ Class B addresses are where the first two octets are used for the network ID and
 
 Class C addresses are those where the first three octets are used for the network ID and only the final octet is used for the host ID.
 
-#### Transport layer
+##### Address resolution protocol (ARP)
+
+A protocol used to discover the hardware address of a node with a certain IP address.
+
+Almost all network connected devices will retain a local ARP table. An ARP table is just a list of IP addresses and the MAC address is associated with them.
+
+ARP table entries generally expire after a short amout of time to ensure changes in the network are accounted for.
+
+##### Subnetting
+
+The process of taking a large network and splitting it up into many individual and smaller subnetworks, or subnets.
+
+###### Subnet masks
+
+32-bit numbers that are normally written out as four octets in decimal.
+
+#### Router
+
+Router: A network device that forwards traffic depending on the destination address of that traffic.
+
+![070604](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070604.png)
+
+Basic routing has just a few steps.
+
+One, a router receives a packet of data on one of its interfaces.
+
+Two, the router examines the destination IP of this packet.
+
+Three, the router then looks up the destination network of this IP in its routing table.
+
+Four, the router forwards that out through the interface that's closest to the remote network as determined by additional info within the routing table.
+
+##### Routing table
+
+![070605](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070605.png)
+
+###### Destination network
+
+This column would contain a row for each network that the router knows about.
+
+###### Next hop
+
+This is the IP address of the next router that should reveive data intended for the destination networking question.
+
+###### Total hops
+
+Used for keep track of how far away that destination currently is.
+
+###### Interface
+
+The router also has to know which of its interfaces it should forward traffic, matching the destination network out of.
+
+##### Routing protocols
+
+The real magic of routing is in the way that routing tables are always updated with new information about the quickest path to destination networks.
+
+What is routing protocols: These are special protocols, the routers use to speak to each other in order to share what information they might have.
+
+##### Interior Gateway protocols
+
+Definition: Used by routers to share information within a single autonomous system. An antonomous system is a collection of networks that all fall under the control of a single network operator.
+
+###### Link state routing protocols
+
+Routers using a link state protocol taking more sophisticated approach to determining the best path to a network. 
+
+Link state protocols get their name because each router advertises the state of the link of each of its interfaces. 
+
+These interfaces could be connected to other routers or they could be direct connections to networks.
+
+###### Distance vector protocols
+
+Distance vector protocols are an older standard. 
+
+A router using a distance vector protocol basically just takes its routing table,which is a list of every network known to it and how far away these networks are in terms of hops.
+
+Then the router sends this list to every neighboring router which is basically 
+
+every router directly connected to it. 
+
+In computer science, a list is known as a vector. 
+
+This is why a protocol that just sends a list of distances to networks is known as a distance vector protocol.
+
+##### Exterior Gateways protocols
+
+Exterior gateway protocols are used to communicate data between routers representing the edges of an autonomous system. 
+
+Since routers sharing data using interior gateway protocols are all under control of the same organization. 
+
+Routers use exterior gateway protocols when they need to share information across different organizations. 
+
+###### Internet Assigned Numbers Authority (IANA)
+
+A non-profit organization that helps manage things like IP address allocationion.
+
+ASN: Autonomous system number, Numbers assigned to individual autonomous systems.
+
+
+
+
+
+### Transport layer
 
 Sorts out which client and server programs are supposed to get that data.
 
 
 
-#### Application
+### Application layer
 
  There are lots of different protocols at this level; they're application-specific.
 
