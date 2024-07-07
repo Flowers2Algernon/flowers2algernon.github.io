@@ -393,13 +393,124 @@ A non-profit organization that helps manage things like IP address allocationion
 
 ASN: Autonomous system number, Numbers assigned to individual autonomous systems.
 
-
-
-
-
 ### Transport layer
 
 Sorts out which client and server programs are supposed to get that data.
+
+Transport layer allows traffic to be directed to specific network applications.
+
+###### Multiplexing 
+
+Multiplexing in the transport layer means that nodes on a network have the ability to direct traffic toward many different receiving services.
+
+###### Demultiplexing
+
+Demultiplexing is the same concept just at the receiving end, it's taking traffic that's all aimed at the same node and delivering it to the proper receiving service.
+
+![070701](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070701.png)
+
+The transport layer handles multiplexing and demultiplexing through ports.
+
+A port is a 16-bit number that's used to direct traffic to specific services running on a networked computer.
+
+TCP segment: Made up of a TCP header and a data section.
+
+###### Source port
+
+Source port: A high-numbered port chosen from a special section of ports known as ephemeral ports.
+
+A source port is needed so that when the web server replies, the computer making the original request can send this data to the program that was actually requesting it.
+
+Sequence number: This is a 32-bit number that's used to keep track of where in a sequence of TCP segments this one is expected to be.
+
+Data offset field: A 4-bit number that communicates how long the TCP header for this segment is.
+
+TCP checksum: Specifies the range of sequence numbers that might be sent before an acknowledgement is required.
+
+Urgent pointer field: Used in conjunction with one of the TCP control flags to point out particular segments that might be more important than others.
+
+##### TCP Control Flags
+
+The way TCP establishes a connection is through the use of different TCP control flags used in a very specific order.
+
+###### URG (urgent)
+
+A value of one here indicates that the segment is considered urgent and that the urgent pointer field has more data about this.
+
+###### ACK (acknowledge)
+
+A value of one in this field means that the acknowledgement number field should be examined.
+
+###### PSH (push)
+
+The transmitting device wants the receiving device to push currently-buffered data to the application on the receiving end as soon as possible.
+
+A buffer is a computing technique in which a certain amount of data is held somewhere before being sent elsewhere.
+
+###### RST (reset)
+
+One of the sides in a TCP connection hasn't been able to recover from a series of missing or malformed segments properly.
+
+###### SYN (synchronize)
+
+It's used when first establishing a TCP connection and making sure the receiving end knows how to examine the sequence number field.
+
+###### FIN (finish)
+
+When this flag is set to one, it means the transmitting computer doesn't have any more data to send and the connection can be closed.
+
+##### The three-way  handshake
+
+A handshake is a way for two devices to ensure that they're speaking the same protocol and will be able to understand each other.
+
+![070702](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070702.png)
+
+Computer A will be our transmitting computer, and computer B will be our receiving computer.
+
+First, to start the process off, Computer A sends a TCP segment to Computer B, with a SYN flag sent. This is computer A's way of saying, let's establish a connection and look at my sequence number field so we know where this conversation starts. 
+Second, Computer B then responds with a TCP segment where both the SYN and ACK flags are sent. This is computer B's way of saying, sure, let's establish a connection, and I acknowledge your sequence number.
+
+Last, Computer A responds again with just the ACK flag sent, which is just saying I acknowledge your acknowledgement. Let's start sending data.
+
+Once the three-way handshake is complete, the TCP connection is established 
+
+Now, computer A is free to send whatever data it wants to computer B and vice versa.
+
+Since both sides have now sent SYN/ACK pairs to each other, a TCP connection in this state is operating in full duplex.
+
+Each segment sent in either direction should be responded to by a TCP segment with the ACK field sent. This way the other side always knows what has been received.
+
+Once one of the devices involved with the TCP conncetion is ready to close the connection, something known as a four-way handshake happens.
+
+##### The four-way handshake
+
+![070703](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070703.png)
+
+The computer ready to close the connection sends a FIN flag, which the other computer acknowledges with an ACK flag. 
+
+Then, if this computer is also ready to close the connection, which will almost always be the case, it will send a FIN flag.
+
+This is again responded to by an ACK flag.
+
+##### TCP Socket States
+
+A socket is the instantiation of an endpoint in a potential TCP connection.
+
+An instantiation is the actual implementation of something defined elsewhere.
+
+You can send traffic to any ports you want, but you're only going to get a response if a program has opened a socket on that port.
+
+###### Listen
+
+Listen means that a TCP socket is ready and listening for incoming connections. You'll see this only on the server side.
+
+###### SYN_SENT
+
+This means that a synchronization request has been sent, but the connection hasn't been established yet.
+
+
+
+
 
 
 
@@ -407,7 +518,7 @@ Sorts out which client and server programs are supposed to get that data.
 
  There are lots of different protocols at this level; they're application-specific.
 
-
+Application layer allows applications to communicate in a way they understand.
 
 
 
