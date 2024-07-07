@@ -500,25 +500,74 @@ An instantiation is the actual implementation of something defined elsewhere.
 
 You can send traffic to any ports you want, but you're only going to get a response if a program has opened a socket on that port.
 
-###### Listen
+###### LISTEN
 
 Listen means that a TCP socket is ready and listening for incoming connections. You'll see this only on the server side.
 
 ###### SYN_SENT
 
-This means that a synchronization request has been sent, but the connection hasn't been established yet.
+This means that a synchronization request has been sent, but the connection hasn't been established yet. You'd see this only on the client side.
 
+###### SYN-RECEIVED
 
+A socket previously in a LISTEN state has received a synchronization request and sent a SYN/ACK back, but the client hasn't yet received the final ACK. You'd see this only on the server side.
 
+###### ESTABLISHED
 
+This means that the TCP connection is in working order, and both sides are free to send each other data. You'd see this state on both the client and server side of a connection.
 
+###### FIN_WAIT
 
+A FIN has been sent, but the corresponding ACK from the other end hasn't been received yet.
+
+###### CLOSE_WAIT
+
+This means that the connection has been closed at the TCP layer, but that the application that opened the socked hasn't released its hold on the socket yet.
+
+###### CLOSED
+
+This means that the connection has been fully terminated and that no further communication is possible.
+
+##### Connection-oriented and Connectionless Protocols
+
+A connection-oriented protocol is one that establishes a connection and uses this to ensure that all data has been properly transmitted.
+
+Once a TCP segment tells a service to listen for requests through a port, that listening port becomes a "socket." In other words, a socket is an active port used by a service. Once a socket is activated, a client can send and receive data through it. 
+
+While TCP will generally send all segments in sequential order, they may not always arrive in that order. If some of the segments had to be resent due to errors at lower layers, it doesn't matter if they arrive slightly out of order.
+
+This is because sequence numbers allow for all of the data to be put back together in the right order.
+
+![070704](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070704.png)
+
+Network services are run by listening to specific ports for incoming data requests. 
+
+- Ports are represented by a single 16-bit number (65535 different port ids)
+- Ports are split up by the IANA (Internet Assigned Numbers Authority) into three categories: System Ports (ports 1-1023), User Ports (ports 1024-49151), and Ephemeral (Dynamic) Ports (ports 49152-65535).
+- A socket is a port that a TCP segment has activated to listen for data requests.
+- Ports allow services to send data to your computer but can also send malware into a client program. It's important to secure your ports.
+
+###### UDP-connectionless protocols
+
+UDP: User Datagram Protocol.
+
+Unlike TCP, UDP doesn't rely on connections, and it doesn't even support the concept of an acknowledgement. 
+
+With UDP, you just set a destination port and send the packet. This is useful for messages that aren't super important, such as UDP, when streaming video.
+
+##### Firewalls
+
+A firewall is a device that blocks traffic that meets certain criteria.
+
+![070705](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070705.png)
+
+Firewalls that operate at the transportation layer will generally have a configuration that enables them to block traffic to certain ports while allowing traffic to other ports.
 
 ### Application layer
 
  There are lots of different protocols at this level; they're application-specific.
 
-Application layer allows applications to communicate in a way they understand.
+The application layer allows applications to communicate in a way they understand.
 
 
 
