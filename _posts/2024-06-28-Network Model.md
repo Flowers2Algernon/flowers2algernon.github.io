@@ -569,7 +569,19 @@ Firewalls that operate at the transportation layer will generally have a configu
 
 The application layer allows applications to communicate in a way they understand.
 
+##### OSI Model
 
+![070706](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/070706.png)
+
+The OSI model has seven layers and introduces two additional layers between our transport and application layers.
+
+The fifth layer in the OSI model is the session layer.
+
+The concept of the session layer is that it's responsible for things like facilitating the communication between actual applications and the transport layer. Takes application layer data and hands it off to the presentation layer.
+
+The sixth layer: Presentation layer. 
+
+The presentation layer is responsible for ensuring that the unencapsulated application layer data can be understood by the application in question. This is the part of an operating system that might handle encryption or compression of data.
 
 #### Package being delivered
 
