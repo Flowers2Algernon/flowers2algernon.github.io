@@ -164,7 +164,83 @@ This flexibility additionally means that I can update already existing propertie
 
 ```js
 house.windows = 11;
-console.log(house);{rooms: 3, color: "brown", priceUSD: 10000, windows: 11}
+console.log(house);//{rooms: 3, color: "brown", priceUSD: 10000, windows: 11}
 ```
 
 ### Object literals and the brackets notation
+
+There is an alternative syntax to the dot notation known as the brackets notation. To understand how it works, it's best to use an example, so I'll go through the process of coding the `house2` object again, in the same way that I did with the dot notation, but this time I will use brackets notation.
+
+```js
+var house2 = {};
+house2["rooms"] = 4;
+house2['color'] = "pink";
+house2["priceUSD"] = 12345;
+console.log(house2);//{rooms: 4, color: 'pink', priceUSD: 12345}
+```
+
+Note that using the brackets notation, just put each property's key as a `string`, inside either the single or double quotes - just like with regular strings.
+
+I can both access and update properties on objects using either the dot notation, or the brackets notation, or a combination of both, like the following:
+
+```js
+var car = {};
+car.color = "red";
+car["color"] = "green";
+car["speed"] = 200;
+car.speed = 100;
+console.log(car);//{color: "green", speed: 100}
+```
+
+Another important piece of information about the brackets notation:
+
+```js
+car["number of doors"] = 4;
+console.log(car);//{color: 'green', speed: 100, number of doors: 4}
+```
+
+With the brackets notation, I can add space characters inside property names, like the above.
+
+Additionally, I can add numbers (as the string data type) as property keys:
+
+```js
+car["2022"] = 1901;
+console.log(car);// {2022: 1901, color: 'green', speed: 100, number of doors: 4}
+```
+
+However, doing this is discouraged, due to obvious reasons of having a property key as a number string not really conveying a lot of useful information.
+
+Finally, there's one really useful thing that bracket notation has, but dot notation doesn't have: it can evaluate expressions:
+
+```js
+var arrOfKeys = ['speed','altitute','color'];
+var drone = {
+  speed: 100;
+  altitude: 200,
+  color: "red"
+}
+for(var i = 0;i < arrOfKeys.length;i++){
+  console.log(drone[arrOfKeys[i]]);
+}
+```
+
+The above code will result in the following result:
+
+```js
+100
+200
+red
+```
+
+Using the fact that brackets notation can evaluate expressions, I accessed the arrOfKeys[i] property on the drone object. 
+
+This value changed on each loop while the for loop was running.
+
+Specifically, the first time it ran, it was evaluated like this: 
+
+- The value of `i` was `0`
+- The value of `arrOfKeys[i]` was `arrOfKeys[0]`, which was `"speed"`
+- Thus, `drone[arrOfKeys[i]]` was evaluated to `drone["speed"]` which is equal to `100`.
+
+This allowed me to loop over each of the values stored inside the `drone` object based on each of its properties' keys. 
+
