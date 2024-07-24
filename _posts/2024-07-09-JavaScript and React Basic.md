@@ -1,6 +1,6 @@
 ---
 date: 2024-07-09 07:00:38 +0800
-categories: [Front end]
+categories: [Front]
 tags: [javascript, react]     # TAG names should always be lowercase
 ---
 
