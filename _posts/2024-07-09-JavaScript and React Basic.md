@@ -244,3 +244,125 @@ Specifically, the first time it ran, it was evaluated like this:
 
 This allowed me to loop over each of the values stored inside the `drone` object based on each of its properties' keys. 
 
+### Arrays are Objects
+
+In JavaScript, Arrays are objects. That means that arrays also have some built-in properties and methods.
+
+One of the most commonly used built-in methods on arrays are the `push()` and the `pop()` methods.
+
+To add new items to an array, I can use the `push()` method:
+
+```js
+var fruits = [];
+fruits.push("apple");//['apple']
+fruits.push('pear');//['apple', 'pear']
+```
+
+To remove the last item from an array,  I can use the `pop()` method:
+
+```js
+fruits.pop();
+console.log(fruits);//['apple']
+```
+
+For example:
+
+```js
+function arrauBuilder(one, two, three){
+  var arr = [];
+  arr.push(one);
+  arr.push(two);
+  arr.push(three);
+  return arr;
+}
+```
+
+Additionally, I can save this function call to a variable.
+
+```js
+var simpleArr = arrBuilder('apple', 'pear', 'plum');
+```
+
+And now I can console log the values stored in `simpleArr`:
+
+```js
+console.log(simpleArr);// ['apple','pear','plum']
+```
+
+
+
+### Object Method
+
+An object in Js consists of key-value parts, known as properties.
+
+We can add new key-value pairs to exsiting objects using the dot notation and the assignment operator:
+
+```js
+var car = {};
+car.color = "red"; // update the value of a property of the car object
+```
+
+These are known as properties, and can take many data types, including functions.
+
+```js
+var car = {};
+
+car.color = "red";
+
+//add a method to the car object so that it can be called as car.turnKey()
+car.turnKey = function() {
+  console.log('engine running');
+}
+```
+
+If the function is a property of an object, it is then referred to as a method.
+
+This is a function that can be accessed only through the JS object that it is a member of. For example, the log method, which belongs to the console object, can only be accessed through the console object.
+
+`console.log('Hello world');`
+
+Let's further explore this, here is the original object:
+
+```js
+var car = {};
+car.mileage = 98765;
+car.color = "red";
+console.log(car);
+```
+
+Next, I want to add a method to my `car` object. This method, when called, will output some text to the console.
+
+What's unique is that the value I'm assigning to it is a function:
+
+```js
+var car = {};
+car.mileage = 98765;
+car.color = "red";
+console.log(car);
+car.turnTheKey = function() {
+  console.log("The engine is running");
+}
+console.log(car);
+```
+
+Remember that all the key-value pairs in an object are referred to simply as properties. However, if I want to differentiate between the properties that can be executed, then I refer to such properties as methods.
+
+So, now I want to add another method to the `car` object.
+
+```js
+//example of adding properties and methods to an object
+var car = {};
+car.mileage = 98765;
+car.color = "red";
+console.log(car);
+car.turnTheKey = function() {
+  console.log("The engine is running");
+}
+car.lightsOn = function() {
+  console.log("The lights are on.");
+}
+console.log(car);
+car.turnTheKey();
+car.lightsOn();
+```
+
