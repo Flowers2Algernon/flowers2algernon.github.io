@@ -438,3 +438,202 @@ However, if I try to use a non-existing number system, such as an imaginary Base
 (10).toString(100); // Uncaught RangeError: toString() radix argument must between 2 and 36
 ```
 
+### Return values from functions
+
+Many functions, by default, return the value of `undefined`.
+
+An example is the `console.log()` function.
+
+If I run:
+
+```js
+console.log('Hello');
+```
+
+Here is the output in the console:
+
+```js
+Hello
+undefined
+```
+
+Because the `console.log()` function is build so as to not have the explicity set return value, it gets the default return value of `undefined`.
+
+I'll now code my own implementation of `console.log()`, which doesn't return the value of `undefined`:
+
+```js
+function consoleLog(val){
+  console.log(val);
+  return val;
+}
+```
+
+Now when I run my custom `consoleLog()` function:
+
+```js
+consoleLog('Hello');
+```
+
+I get the following output:
+
+```js
+Hello
+'Hello'
+```
+
+### FP and OOP paradigm
+
+"There are actually several styles of coding, also known as paradigm. A common style is called functional programming, or FP for short".
+
+In functional programming, we use a lot of functions and variables:
+
+```js
+function getTotal(a,b) {
+  return a + b;
+}
+var num1 = 2;
+var num2 = 3;
+
+var total = getTotal(num1, num2);
+```
+
+When writing FP code, we keep data and functionality separate and pass data into functions only when we want something computed:
+
+```js
+function getDistance(mph, h) {
+  return mph * h;
+}
+var mph = 60;
+var h = 2;
+var distance = getDistance(mph, h);
+```
+
+In functional programming, functions return new values and then use those values somewhere else in the code:
+
+```js
+function getDistance(mph, h) {
+  return mph * h;
+}
+var mph = 60;
+var h = 2;
+var distance = getDistance(mph, h);
+
+console.log(distance); // <=======HERE
+```
+
+Another style is **object-oriented programming (OOP)**. In this style, we group data and functionality as properties and methods inside objects.
+
+For example, If I have a `virtualPet` object, I can give it a `sleepy` property and a `nap()` method:
+
+```js
+var virtualPet = {
+  sleepy: true,
+  nap: function(){}
+}
+```
+
+In OOP, methods update properties stored in the object instead of generating new return values.
+
+OOP helps us model real-life objects. It works best when the grouping of properties and data in an object makes logical sense - the properties and methods "belong together".
+
+To summarize this point, we can say that the Functional Programming paradigm works by keeping the data and functionality separate. It's counterpart, OOP, works by keeping the data and functionality grouped in meaningful objects.
+
+Here are some of the most important concepts in FP:
+
+- First-class functions
+- Higher-order functions
+- Pure functions and side-effects
+
+#### First-class functions
+
+It is often said that functions in JS are "first-class citizens". What does that means?
+
+It means that a function in JS is just another value that we can:
+
+- pass to other functions
+- save in a variable
+- return from other functions
+
+In other words, a function in JS is just a value - from this vantage point, almost no different then a string or a number.
+
+For example, in JS, it's perfectly normal to pass a function invocation to another function:
+
+```js
+function addTwoNums(a, b){
+  console.log(a + b);
+}
+
+function randomNum(){
+  return Math.floor((Math.random() * 10) + 1);
+}
+function specificNum() {return 42};
+
+var useRandom = true;
+
+var getNumber;
+
+if(useRandom) {
+  getNumber = randomNum
+}else{
+  getNumber = specificNum
+}
+
+addTwoNUms(getNumber(), getNumber());
+```
+
+In the above code, based on the `useRandom` being set to `true` or `false`, the `getNumber` variable will be assigned either the `randomNum()` function declaration or the `specificNum() `function declaration.
+
+With all this code set, I can then invoke the `addTwoNums()` function, passing it the invocation of the `getNumber()` variables as its first and second arguments.
+
+**This works because functions in JS are trully first-class citizens, which can be assigned to variable names and passed around just like I would pass around a string, a number, an object, etc**
+
+#### Higher-order functions
+
+A higher-order function is a function that has either one or both of the following characteristics:
+
+- It accepts other functions as arguments
+- It returns functions when invoked
+
+It is simply a feature of the lanaguage. The lanaguage itself allows me to pass a function to another function, or to return a function from another function.
+
+Based on the previous code, in which I'm re-defining the `addTwoNums()` function so that it is a higher-order function:
+
+```js
+function addTwoNUms(getNumber1, getNumber2) {
+  console.log(getNumber1() + getNumber2());
+}
+```
+
+Once the function receives them as arguments, it will then attempt invoking them and concatenating the values returned from those involvedcations.
+
+For example:
+
+```js
+addTwoNums(specificNum, specificNum); // returned number is 84
+addTwoNums(specificNum, randomNum); // returned number is 42 + some random number
+```
+
+#### Pure functions
+
+Another concept of functional programming are pure functions.
+
+A pure function returns the exact same results as long as it's given the same values.
+
+An example of a pure function is the `addTwoNums()` function from the previous section:
+
+```js
+function addTwoNums(a, b){
+  console.log(a + b);
+}
+```
+
+This function will always return the same output, based on the input.
+
+For example, as long as we give it a specific value, say, a `5` and a `6`:
+
+```js
+addTwoNums(5,6);//11
+```
+
+The output will always be the same.
+
