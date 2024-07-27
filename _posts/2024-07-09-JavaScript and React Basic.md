@@ -366,3 +366,75 @@ car.turnTheKey();
 car.lightsOn();
 ```
 
+### Errors in JavaScript
+
+Here are some of the most common errors in JS:
+
+- ReferenceError
+- SyntaxError
+- TypeError
+- RangeError
+
+There are some other errors in JS:
+
+- AggregateError
+- Error
+- InternalError
+- URIError
+
+#### ReferenceError
+
+A ReferenceError gets thrown when, for example, one tries to use variables that haven't been declared anywhere.
+
+An example can be, attempting to console log a variable that doesn't exist:
+
+```js
+console.log(username);
+```
+
+If the variable named `username` hasn't been declared, the above line of code will result in the following output:
+
+```js
+Uncaught ReferenceError: username is not defined
+```
+
+#### SyntaxError
+
+Any kind of invalid JavaScript code will cause a SyntaxError:
+
+```js
+var a "there's no assignment operator here";
+```
+
+The above line of code will throw the following error:
+
+```js
+Uncaught SyntaxError: Unexpected string
+```
+
+#### TypeError
+
+A TypeErrir is thrown when, for example, trying to run a method on a non-supported data type.
+
+A simple example is attempting to run the `pop()` method on a string:
+
+```js
+"hello".pop() // UncaughtError: "hello".pop is not a function
+```
+
+#### RangeError
+
+A RangeError is thrown when we're giving a value to a function, but that value is out of the allowed range of acceptable input values.
+
+Here's a simple example of converting an everyday Base 10 number (a number of the common decimal system) to a Base 2 number(binary number).
+
+```js
+(10).toString(2);//'1010'
+```
+
+However, if I try to use a non-existing number system, such as an imaginary Base 100, since this number system effectively doesn't exist in JS, I will get the RangeError, Since a non-existing Base 100 system is out of range of the number systems that are available to the `toString()` method:
+
+```js
+(10).toString(100); // Uncaught RangeError: toString() radix argument must between 2 and 36
+```
+
