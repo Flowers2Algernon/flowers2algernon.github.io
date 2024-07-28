@@ -659,3 +659,211 @@ class Bird extends Animal{/* ...class code here... */ }
 class Eagle extends Bird{/* ...class code here... */ }
 ```
 
+#### OOP Principles: Encapsulation
+
+In the simplest terms, the encapsulation has to do with making a code implemetation "hidden" from other users, in the sense that they don't have to know how the code works when use the code.
+
+For example:
+
+```js
+"abc".toUpperCase();
+```
+
+I don't really need to worry or even waste time thinking about how the `toUpperCase()` method works. All I want is to use it, since I know it's available to me.
+
+#### OOP Principles: Abstraction
+
+Abstraction is all about writing code in a way that will make it more generalized.
+
+- An abstraction is about extracting the concept of what you're trying to do, rather than dealing with a specific manifestation of that concept.
+- Encapsulation is about you not having access to, or or not being concerned with, how some implementation works internally.
+
+#### OOP Principles: Polymorphism
+
+Means: something that can take on many shapes.
+
+For example:
+
+```js
+const bicycle = {
+  bell: function(){
+    return "Ring, ring! Watch out please."
+  }
+}
+const door = {
+  bell: function(){
+    return "Ring,ring! Come here, please."
+  }
+}
+```
+
+To make this code truly polymorphic, I add the following code:
+
+```js
+function ringTheBell(thing) {
+  console.log(thing.bell)
+}
+```
+
+Now I have declared a `ringTheBell()` function. It accepts a `thing` parameter - which I expect to be an object either the `bicycle` or the `door` object.
+
+Then:
+
+```js
+ringTheBell(bicycle);//Ring, ring! Watch out, please!
+ringTheBell(door); // "Ring, ring! Come here, please!"
+```
+
+### Creating class
+
+All objects that are built from the prototype share the same functionality.
+
+Imagine that you need to code a `Train` class. Once you've coded this class, you'll be able to use the keyword `new` to instantiate objects of the `Train` class.
+
+```js
+class Train{}
+```
+
+You use the `class` keyword, then specify the name of your class, with the first letter capitalized.
+
+In between the curly braces, the first piece of code that you need to define is the constructor:
+
+```js
+class Train{
+  constructor(){
+    //some code
+  }
+}
+```
+
+The `constructor` will be used to build properties on the future object instance of the `Train` class.
+
+```js
+class Train{
+  constructor(color, lightsOn){
+    this.color = color;
+    this.lightsOn = lightsOn;
+  }
+}
+```
+
+Essentially, this is all the code that you need to write to achieve two things:
+
+- This code allows me to **build new instances of the `Train` class**.
+- Each object instance of the `Train` class that I build with have its own custom properties of `color` and `lightsOn`.
+
+Now to actually build a new instance of the `Train` class, I need to use the following syntax:
+
+```js 
+new Train();
+```
+
+Inside the parentheses, you need to pass values such as `red` and `false`, such as the `color` property is set to `red` and the `lightsOn` property is set to `false`.
+
+And to be able to interact with new object build this way, you need to assign it to a variable:
+
+```js
+var myFirstTrain = new Train('red', false);
+```
+
+You can also add methods to classes, and these methods will then be shared by all future instance objects of my `Train` class.
+
+For example:
+
+```js
+class Train {
+  constructor(color, lightsOn){
+    this.color = color;
+    this.lightsOn = lightsOn;
+  }
+  toggleLights() {
+    this.lightsOn = !this.lightsOn;
+  }
+  lightsStatus() {
+    console.log('Lights on?', this.lightsOn);
+  }
+  getSelf() {
+    console.log(this);
+  }
+  getPrototype() {
+    var proto = Object.getPrototypeOf(this);
+    console.log(proto);
+  }
+}
+```
+
+Now you can build a brand new train using this updated `Train` class.
+
+```js
+var train2 = new Train('red', false);
+```
+
+And now, you can run each of its methods:
+
+```js
+train4.toggleLights(); // undefined
+train4.lightsStatus(); // Lights on? true
+train4.getSelf(); // Train {color: 'red', lightsOn: true}
+train4.getPrototype(); // {constructor: f, toggleLights: f, ligthsStatus: f, getSelf: f, getPrototype: f}
+```
+
+Thus, in conclusion, the class syntax in JS allows us to clearly seperate individual object's data - which exists on the object instance itself - from the shared object's functionality (methods), which exist on the prototype and are shared by all object instances.
+
+It is possible to implement polymorphism using classes in JavaScript, by inheriting from the base class and then overriding the inherited behavior. To understand how this works, it is best to use an example.
+
+```js
+class HighSpeedTrain extends Train{}
+```
+
+Now you can describe how the `HighSpeedTrain` works, we can start from constructor function:
+
+```js
+class HighSpeedTrain extends Train{
+  constructor(passengers, highSpeedOn, color, lightsOn){
+    super(color, lightsOn);
+    this.passengers = passengers;
+    this.highSpeedOn = highSpeedOn;
+  }
+}
+```
+
+In JS, `super` is used to specify what property gets inherited from the super-class.
+
+In this case, I choose to inherit both the properties from the Train super-class in the HighSpeedTrain sub-class.
+
+These properties are `color and lightsOn`.
+
+ Notice that in addition to the inherited properties, you also `automatically inherit` all the methods that exist on the `Train` prototype, namely, the `toggleLights()`, `lightsStatus()`, `getSelf()`, and `getPrototype()` methods.
+
+```js
+class HighSpeedTrain extends Train {
+    constructor(passengers, highSpeedOn, color, lightsOn) {
+        super(color, lightsOn);
+        this.passengers = passengers;
+        this.highSpeedOn = highSpeedOn;
+    }
+    toggleHighSpeed() {
+        this.highSpeedOn = !this.highSpeedOn;
+        console.log('High speed status:', this.highSpeedOn);
+    }
+    toggleLights() {
+        super.toggleLigths();
+        super.lightsStatus();
+        console.log('Lights are 100% operational.');
+    }
+}
+```
+
+Now you're ready to build some train objects.
+
+```js
+var train2 = new Train('bule', false);
+var highSpeed1 = new HighSpeedTrain(200, false, 'green', false);
+```
+
+Get the following results:
+
+```js
+highSpeed1.toggleLights(); // Lights on? true, Lights are 100% operational.
+```
+
