@@ -637,3 +637,25 @@ addTwoNums(5,6);//11
 
 The output will always be the same.
 
+### The Principles of OOP
+
+The four fundamental OOP principles are inheritance, encapsulation, abstraction and polymorphism. The thing to remember about Objects is that they exist in a hierarchal structure. Meaning that the original base or super class for everything is the object class, all objects derive from this class.
+
+#### OOP Principles: Inheritance
+
+It works like this:
+
+1. There is a base class of a "thing".
+2. There is one or more sub-classes of "things" that inherit the properties of the base class (sometimes also referred to as the 'super-class')
+3. There might be some other sub-sub-classes of "things" that inherit from those classes in point2.
+
+To setup the inheritance relation between classes in JS, I can use ` extends` keyword, as in `class B extends A`.
+
+For example:
+
+```js
+class Animal{/* ...class code here... */ }
+class Bird extends Animal{/* ...class code here... */ }
+class Eagle extends Bird{/* ...class code here... */ }
+```
+
