@@ -867,3 +867,234 @@ Get the following results:
 highSpeed1.toggleLights(); // Lights on? true, Lights are 100% operational.
 ```
 
+### Default Parameter
+
+For example, consider a function declaration without default parameters set:
+
+```js
+function noDefaultParameter(number) {
+  console.log('Result:', number*number);
+}
+```
+
+Obviously, the noDefaultParams function should return whatever number it receives, *squared*.
+
+However, what if I call it like this:
+
+```js
+noDefaultParams(); // Result: NaN
+```
+
+Js, due to its dynamic nature, doesn't throw an error. but it does return a non-sensical output.
+
+Consider now, use the default parameter, as the following code:
+
+```js
+function withDefaultParams(number = 10){
+  console.log('Result:', number * number);
+}
+```
+
+Default params allow me to build a function that will run with default arguments values even if I don't pass it any arguments, while still being flexible enough to allow me to pass custom argument values and deal with them accordingly.
+
+Consider the following code:
+
+```js
+class NodefaultParams {
+  constructor(num1, num2, num3, string1, bool1){
+        this.num1 = num1;
+        this.num2 = num2;
+        this.num3 = num3;
+        this.string1 = string1;
+        this.bool1 = bool1;
+  }
+  calculate() {
+    if(this.bool1) {
+      console.log(this.string, this.num1 + this.num2 + this.num3);
+      return;
+    }
+    return "The value of bool1 is incorrect"
+  }
+}
+```
+
+Obviously, the bool1 should be set to true on invocation to make this work, but I'll set it to false on purpose, to highlight the point I'm making.
+
+```js
+var fail = new NoDefaultParams(1,2,3,false);
+fail.calculate(); // 'The value of bool1 is incorrect'
+```
+
+This example might highlight the reason sometimes weird error messages appear when some software is used - perhaps the developers just didn't have enough time to build it better.
+
+However, now that you know about default parameters, this example can be improved as follows:
+
+```js
+class WithDefaultParams {
+  constructor(num1 = 1, num2 = 2, num3 = 3, string1 = "Result: ", bool1 = true){
+        this.num1 = num1;
+        this.num2 = num2;
+        this.num3 = num3;
+        this.string1 = string1;
+        this.bool1 = bool1;
+  }
+  calculate() {
+        if(this.bool1) {
+            console.log(this.string1, this.num1 + this.num2 + this.num3);
+            return;
+        }
+        return "The value of bool1 is incorrect"
+    }
+}
+var better = new WithDefaultParams();
+better.calculate(); // Result: 6
+```
+
+This approach really shines when building inheritance using classes, as it makes it possible to provide only the custom properties in the sub-class, while still accepting all the default parameters from the super-class constructor.
+
+### For of loops and objects
+
+To begin, it's important to know that a for loop connot work on an object directly. Since **an object is not utterable**.
+
+For example:
+
+```js
+const car = {
+  speed: 100;
+  color: "blue";
+}
+for(prop of car){
+  console.log(prop);
+}
+```
+
+Running the above code will throw the following error:
+
+```js
+Uncaught TypeError: car is not iterable
+```
+
+Contray to objects, arrays are utterable. For example:
+
+```js
+const colors = ['red', 'orange', 'yellow']
+for (var color of colors){
+  console.log(color);
+}
+```
+
+This time, the output is as follows:
+
+```
+red
+orange
+yellow
+```
+
+Luckily, you can use the fact that a for of loop can be run on arrays *to loop over objects*.
+
+But how?
+
+There are three built-in methods: `Object.keys()`, `Object.values()`, `Object.entries()`.
+
+#### Built-in methods:
+
+##### The `Object.keys()` method
+
+The `Object.keys()` method receives an object as its parameter. Remember, this is **the object you want to loop over**.
+
+For now, just focus on the returned array of properties when you call the `Object.keys()` method.
+
+Here is an example:
+
+```js
+const car2 = {
+  speed: 200;
+  color: "red";
+}
+console.log(Object.keys(car2)); //['speed', 'color']
+```
+
+So, when I run `Object.keys()` and pass it my `car2` object, **the returned value is an array of strings**, where each string is a property key of the properties contained in my `car2` object.
+
+##### The `Object.values()` method
+
+Another useful method is `Object.values()`:
+
+```js 
+const car3 {
+  speed: 300;
+  color: "yellow";
+}
+console.log(Object.values(car3)); //[300, 'yellow']
+```
+
+##### The `Object.entries()` method
+
+Which returns an array listing both the keys and the values.
+
+```js
+const car4 = {
+  speed: 400;
+  color: 'magenta';
+}
+console.log(Object.entries(car4));
+```
+
+The output is:
+
+```js
+[ ['speed', 400], ['color', 'magenta'] ]
+```
+
+You get an array of arrays, where each array item has two members, the first being a property's key, and the second being a property's value.
+
+### Template literals 
+
+##### what are template literals?
+
+Template literals are an alternative way of working with strings, Up until ES6, the only way to build strings in JavaScript was to delimit them in either single quotes or double quotes:
+
+```js
+'Hello, World!'
+"Hello, World!"
+```
+
+Alongside the previous ways to build strings, ES6 introduced the use of backtick characters as delimiters:  
+
+```js
+`Hello, World!`
+```
+
+The above code snippet is an example of a template string, which is also knwon as a template literal.
+
+With template literals, an expression can be embedded in a *placeholder*. A placeholder is represented by ${}, with anything within the curly brackets treated as JavaScript and anything outside the brackets treated as a string.
+
+##### Differences between a template and regular string
+
+There are several ways in which a template string is different from a regular string.
+
+- First, it allows for variable interpolation:
+
+```js
+let greet = "Hello";
+let place = "World";
+console.log('${greet} ${place} !') //display both variables using template literals
+```
+
+The above console log will output:
+
+```js
+Hello World!
+```
+
+Using template literals allows developers to embed variables directly in between backticks, without the need to use the `+` operator and the single or double quotes.
+
+In other words, in ES5, the above example would have to be written as follows:  
+
+```js
+var greet = "Hello";
+var place = "World";
+console.log(greet + " " + place + "!");//display both variables without using template literals
+```
+
