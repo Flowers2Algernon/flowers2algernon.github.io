@@ -1098,3 +1098,121 @@ var place = "World";
 console.log(greet + " " + place + "!");//display both variables without using template literals
 ```
 
+### Basic DS in JS
+
+##### Working with arrays in JS
+
+The following will focus on three specific methods:
+
+- forEach
+- filter
+- map
+
+###### The `forEach` method
+
+The basic syntax:
+
+```js
+const fruits = ['kiwi', 'mango', 'apple', 'pear'];
+function appendIndex(fruit, index) {
+  console.log(`${index}. ${fruit}`)
+}
+fruits.forEach(appendIndex);
+```
+
+The result of running the above code is this:  
+
+```
+0. kiwi
+1. mango
+2. apple
+3. pear
+```
+
+The `forEach()` method accepts a function that will work on each array item.
+
+###### The `filter()` method
+
+It filters your arrays based on a specific test. Those array items that pass the test are returned.
+
+For example:
+
+```js
+const nums = [0, 10, 20, 30, 40, 50];
+nums.filter( function(num){
+  return num > 20;
+})
+```
+
+Here's the returned array value:
+
+```
+[30, 40, 50]
+```
+
+Similar to the `forEach()` method, the `filter()` method also accepts a function and that function performs some work on each of the items in the array.
+
+###### The `map` method
+
+This method is used to map each array item over to another array's item, based on whatever work is performed inside the function that is passed-in to the map as a parameter.
+
+```js
+[0,10,20,30,40,50].map( function(num){
+  return num / 10;
+})
+```
+
+The return value from the above code is:
+
+```
+[0,1,2,3,4,5]
+```
+
+##### Working with Objects in JS
+
+For example: Do a task about convert an object to an array:
+
+```js
+const result = [];
+const drone = {
+  speed: 100,
+  color: 'yellow'
+}
+const droneKeys = Object.keys(drone);
+droneKeys.forEach( function(key){
+  result.push(key, drone[key])
+})
+console.log(result)
+```
+
+The result:
+
+```
+['speed',100,'color','yellow']
+```
+
+Although this is possible and works, having to do something like this might mean that you haven't chosen the correct data structure to work with in your code.
+
+##### Working with Maps in JS
+
+Creat a map:
+
+```js
+new Map();
+```
+
+```js
+let bestBoxers = new Map();
+bestBoxers.set(1, "The Champion");
+bestBoxers.set(2, "The Runner-up");
+bestBoxers.set(3, "The third place");
+
+console.log(bestBoxers);
+```
+
+Output:
+
+```
+Map(3) {1 => 'The Champion', 2 => 'The Runner-up', 3 => 'The third place'}
+```
+
