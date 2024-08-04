@@ -6,9 +6,7 @@ tags: [network]     # TAG names should always be lowercase
 
 ### Name Resolution
 
-#### Why do we need DNS?
-
-##### Domain name system (DNS)
+### Domain name system (DNS)
 
 DNS is a global and highly distributed network service that resolves strings of letters into IP addresses for you.
 
@@ -16,8 +14,42 @@ DNS is a global and highly distributed network service that resolves strings of 
 >
 > It's much easier to type www.weather.com into a web browser than it is to remember that one of the IP addresses for this site is 184.29.131.121. 
 
-###### Domain name
+##### Domain name
 
 A domain name is the term we use for something that can be resolved by DNS.
 
 Not only does DNS make it easier for humans to remember how to get to a website, it also lets administrative changes happen behind the scenes without an end-user having to change their behaviour. 
+
+##### DNS Basics
+
+- DNS converts human-readable domain names into IP addresses.
+- Example: It translate "www.example.com" into an IP address like "192.168.1.1"
+
+##### Name Resolution
+
+- Process: The act of converting a domain name into an IP address is known as name resolution.
+- Importance: Without DNS, users would need to remember complex numerical IP addresses instead of simple domain names.
+
+##### Network Configuration
+
+- Essential Components: For a computer to operate on a modern network, four key configurations are needed:
+  - MAC address: A hard-coded identifier for network interfaces.
+  - IP address: The unique address assigned to the device on the network.
+  - Subnet Mask: Defines the network segment and helps in routing.
+  - Gateway: The device that routes traffic from the local network to another network.
+  - DNS Server: The server translates domain names into IP addresses.
+
+##### Type of DNS Servers
+
+- Five Primary Types:
+  - Caching Name Servers: Store previously resolved domain names to speed up future queries.
+  - Recursive Name Servers: Perform full DNS resolution requests on behalf of clients.
+  - Root Name Servers: The top-level servers in the DNS hierarchy that direct queries to TLD servers.
+  - TLD Name Servers: Handle queries for specific top-level domains(like .com).
+  - Authoritative Name Servers: Provide the final answer for a specific domain name.
+
+##### Time to Live (TTL)
+
+- **Definition**: TTL is a value that specifies how long a DNS record can be cached before it must be refreshed.
+- **Impact**: A long TTL means changes to DNS records take longer to propagate across the internet. Modern TTLs are often shorter (minutes to hours) due to increased internet speed.
+
