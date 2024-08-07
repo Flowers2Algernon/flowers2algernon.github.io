@@ -71,3 +71,29 @@ Used to define the location of various specific services.
 
 Originally intended to be used only for associating some descriptive text with a domain name for human consumption.
 
+##### Top level domain(TLD)
+
+The last part of a domain name. Such as .com or .net ...
+
+##### Domains
+
+Used to demarcate where control moves from a TLD name server to an authoritative name server. Such as www.google.com, the `google` here is the domain.
+
+##### Fully qualified domain name
+
+When you combine all of these parts together you have what's known as this.
+
+##### DNS zone
+
+Allow for easier control over multiple levels of a domain.
+
+##### Zone files
+
+Simple configuration files that declare all resource records for a particular zone.
+
+##### NS records
+
+Indicate other name services that might also be responsible for this zone.
+
+
+
