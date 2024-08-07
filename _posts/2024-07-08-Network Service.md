@@ -53,3 +53,21 @@ Not only does DNS make it easier for humans to remember how to get to a website,
 - **Definition**: TTL is a value that specifies how long a DNS record can be cached before it must be refreshed.
 - **Impact**: A long TTL means changes to DNS records take longer to propagate across the internet. Modern TTLs are often shorter (minutes to hours) due to increased internet speed.
 
+### Name Resolution in Practice
+
+##### A record
+
+Used to point a certain domain name at a certain IPv4 IP address.
+
+##### Round robin
+
+A concept that involves iterating over a list of items one by one in an orderly fashion.
+
+##### Service record
+
+Used to define the location of various specific services.
+
+##### Text record
+
+Originally intended to be used only for associating some descriptive text with a domain name for human consumption.
+
