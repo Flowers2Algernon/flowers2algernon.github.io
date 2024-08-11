@@ -159,7 +159,46 @@ Key concept:
 - Release of IP Address: Clients can voluntarily release their assigned IP address back to the DHCP server when they disconnect from the network, allowing the server to reallocate the address.
 - Dynamic Allocation Methods: DHCP can allocate IP addresses dynamically, automatically, or manually, depending on the configuration of the DHCP server.
 
+### NAT
 
+Network Address Translation (NAT) is a technique used in networking to modify IP address information in IP packet headers while they are in transit across a traffic routing device. Unlike defined protocols such as DNS and DHCP, NAT is not a standard but rather a method that can vary in implementation across different operating systems and network hardware.
 
-​	
+Definition: NAT allows a gateway (typically a router or firewall) to translate one IP address into another. This is often used for security purposes and to conserve the limit IPv4 address space.
+
+###### Basic Functionality
+
+- NAT rewrites the source IP address of outgoing packets while retaining the original address for response packets.
+- For example, if Computer 1 (10.1.1.100) on Network A communicates with Computer 2 (192.168.1.100) on Network B, the router performs NAT by changing the source IP of packets from Computer 1 to its own IP on Network B (192.168.1.1).
+
+###### Example Scenario
+
+In the provided example, the router between Network A and Network B translates the source IP of outgoing packets from Computer 1 to its own IP on Network B. When Computer 2 responds, the router recognizes the intended recipient (Computer 1) and rewrites the destination IP accordingly, maintaining the privacy of Computer 1's address.
+
+![081102](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/081102.png)
+
+###### IP Masquerading
+
+- This process of hiding the original IP address (Computer 1's IP) from the receiving computer (Computer 2) is known as IP masquerading.
+- It enhances security by preventing external entities from directly accessing the internal network devices.
+
+###### One-to-Many NAT
+
+NAT can facilitate a one-to-many relationship where multiple internal devices share a single public IP address. This is commonly seen in local area networks(LANs)
+
+#### NAT at the Transport Layer
+
+While Network Address Translation (NAT) operates primarily at the network layer by translating IP addresses, it also involves the transport layer to ensure proper functionality, especially in one-to-many NAT scenarios.
+
+##### Port Preservation
+
+In one-to-many NAT, where multiple internal devices share a single public IP address, the router uses port preservation to map return traffic to the correct destination. The router keeps track of the source port chosen by the client and uses that same port when translating the outbound traffic. When return traffic arrives at the router on that specific port, it knows to forward the traffic back to the original internal IP address.
+
+##### Port Forwarding
+
+Port forwarding is a technique that allows specific destination ports to be configured to always be delivered to particular internal nodes. This enables complete IP masquerading while still allowing services to respond to incoming traffic. For example, traffic directed at port 80 (HTTP) on the router's external IP address can be automatically forwarded to an internal web server, with the source IP rewritten to appear as the router's external IP. This simplifies external access to multiple internal services running on different servers.
+
+###### Advantages of Port Forwarding
+
+- Allows IP masquerading while still enabling services to receive incoming traffic.
+- Simplifies external access to multiple internal services by mapping them to different ports on the router's external IP address.
 
