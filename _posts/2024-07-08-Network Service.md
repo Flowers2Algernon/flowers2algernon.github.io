@@ -262,3 +262,46 @@ Baud rate measures the speed of data transmission over a phone line. Early compu
 ###### **Decline of Dial-Up**:
 
 Although dial-up technology was once the primary means of long-distance communication between computers, its prevalence has diminished with the rise of broadband technologies. However, it remains in use in some rural areas as the only available option.
+
+### Broadband
+
+Broadband internet has revolutionized the way we access and use the internet, enabling a wide range of applications and services that were not feasible with traditional dial-up connections. The advent of broadband has transformed both business and home internet usage.
+
+Without the development of broadband internet technologies, the internet as we know it today would not exist.
+
+##### T-Carrier Technologies
+
+T-carrier technologies were developed by AT&T to enable multiple phone calls to be transmitted over a single cable. The first specification, known as T1, allowed for the transmission of 24 simultaneous phone calls over a twisted pair of copper wires.
+
+- **T1 Specification**
+  - Each of the 24 channels in a T1 line can transmit data at 64 kilobits per second.
+  - Over time, "T1" has come to refer to any twisted pair copper connection capable of this speed, even if it doesn't strictly adhere to the original specification.
+- Initial Use
+  - T1 technology was initially used to connect telecom company sites and facilitate communication between different telecom providers.
+- **Advancements to T3 Lines**:
+  - T3 lines were developed to multiplex 28 T1 lines, achieving a total throughput of 44.736 megabits per second.
+- **Current Status**
+  - While T-carrier technologies are still in use, they have largely been surpassed by more cost-effective broadband solutions, such as cable and fiber connections, particularly for small businesses.
+
+#### Digital Subscriber Line (DSL) Technology
+
+DSL tech utilizes existing telephone infrastructure to provide high-speed internet access, allowing simultaneous voice calls and data transmission over the same line. This advancement marked a significant improvement over traditional dial-up connections.
+
+- **Infrastructure Utilization**:
+  DSL leverages the twisted pair copper wires used in modern telephone lines, which can transmit significantly more data than what is required for voice calls.
+
+- **Simultaneous Use**:
+  DSL technology allows for normal voice phone calls and data transfer to occur concurrently without interference, making it a practical solution for both home and business users.
+
+- **DSL Modems**:
+  DSL connections use specialized devices known as DSLAMs (Digital Subscriber Line Access Multiplexers), which establish long-running data connections across phone lines.
+
+- **Types of DSL**:
+  - **ADSL (Asymmetric Digital Subscriber Line)**: Offers different speeds for uploading and downloading, typically providing faster download speeds than upload speeds. This is suitable for home users who generally download more data than they upload.
+  - **SDSL (Symmetric Digital Subscriber Line)**: Provides equal upload and download speeds, making it ideal for businesses that require consistent data transfer rates for hosting servers.
+
+- **Speed and Variations**:ADSL speeds can range from 256 Kbps to over 25 Mbps, while SDSL typically caps at 1.544 Mbps, similar to a T1 line.Further developments in DSL technology have led to variations like HDSL (High bit-rate Digital Subscriber Line), which offers speeds above 1.544 Mbps.
+
+- **Current Use**:
+  While DSL technology is still in use, it has been largely surpassed by more advanced broadband solutions. However, it remains a viable option in areas where newer technologies are not yet available.
+
