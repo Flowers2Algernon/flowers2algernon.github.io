@@ -95,5 +95,34 @@ Simple configuration files that declare all resource records for a particular zo
 
 Indicate other name services that might also be responsible for this zone.
 
+#### DHCP
 
+Full name: Dynamic host configuration protocol
 
+Meaning: An application layer protocol that automates the configuration process of hosts on a network.
+
+![081101](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/081101.png)
+
+##### Dynamic allocation
+
+A range of IP addresses is set aside of client devices and one of these IPs is issued to these devices when they request one.
+
+Under a dynamic allocation, the IP of a computer could be different almost every time it connects to the network. 
+
+##### Automatic allocation
+
+A range of IP addresses is set aside for assignment purpose.
+
+Automatic allocation is very similar to dynamic allocation in that a range of IP addresses is set aside for assignment purposes. 
+
+The main difference here is that the DHCP server is asked to keep track of which IPs it's assigned to certain devices in the past. Using this information, the DHCP server will assign the same IP to the same machine each time if possible. 
+
+##### Fixed allocation
+
+Requires a manually specified list of MAC address and their corresponding IPs.
+
+When a computer requests an IP, the DHCP server looks for its MAC address in a table and assigns the IP that corresponds to that MAC address. 
+
+If the MAC address isn't found, the DHCP server might fall back to automatic or dynamic allocation, or it might refuse to assign an IP altogether. 
+
+This can be used as a security measure to ensure that only devices that have had their MAC address specifically configured at the DHCP server will ever be able to obtain an IP and communicate on the network. 
