@@ -235,3 +235,30 @@ Reverse proxies can distribute traffic among multiple servers, similar to DNS ro
 
 With a significant portion of web traffic being encrypted, reverse proxies often utilize specialized hardware for cryptographic processes, allowing backend servers to focus on serving content.
 
+#### Early Computer Networking and Dial-up Technology
+
+As computer usage expanded throughout the 20th century, the need for connecting computers to share data became evident. Before the development of technologies like Ethernet, TCP, or IP, early networking methods focused on connecting devices in close proximity. In the late 1970s, two graduate students at Duke University sought to improve long-distance computer connections and realized they could utilize the existing Public Switched Telephone Network (PSTN), also known as Plain Old Telephone Service (POTS).
+
+![081103](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/081103.png)
+
+###### Usenet
+
+Usenet allows different locations, such as colleges, to exchange message using a primitive dial-up connection over POTS. This marked an early use of phone lines for data transmission.
+
+###### Dial-up Connections
+
+Dial-up connections establish a connection by dialing a phone number. Data transfer occurs through modems, which modulate and demodulate signals to convert digital data into audible tones suitable for transmission over telephone lines.
+
+###### Modems
+
+Modems (modulator-demodulator) are devices that enable computers to communicate over phone lines. They convert digital signals into analog for transmission and vice versa.
+
+Modems take data that computers can interpret and turn them into audible wavelengths that can be transmitted over POTS.
+
+###### Baud Rate
+
+Baud rate measures the speed of data transmission over a phone line. Early computers communicated at very low baud rates, starting at about 110 bits per second in the late 1950s and increasing to approximately 300 bits per second during Usenet's development. By the early 1990s, dial-up speeds reached 14.4 kilobits per second.
+
+###### **Decline of Dial-Up**:
+
+Although dial-up technology was once the primary means of long-distance communication between computers, its prevalence has diminished with the rise of broadband technologies. However, it remains in use in some rural areas as the only available option.
