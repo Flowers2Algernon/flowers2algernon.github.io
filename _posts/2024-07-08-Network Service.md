@@ -202,3 +202,36 @@ Port forwarding is a technique that allows specific destination ports to be conf
 - Allows IP masquerading while still enabling services to receive incoming traffic.
 - Simplifies external access to multiple internal services by mapping them to different ports on the router's external IP address.
 
+### VPN
+
+Virtual Private Networks (VPNs) are essential technologies that enable secure access to private networks over public networks, such as the Internet. They are particularly useful for businesses that need to protect proprietary information and provide remote access to employees who are not physically present in the office.
+
+###### Purpose of VPNS
+
+VPNs allow remote users to access internal resources securely, extending a private network to users outside the local area network(LAN).
+
+###### Tunneling Protocol
+
+VPNs create a secure "tunnel" for data transmission, encapsulating the original data packets within an encrypted payload. This ensures that sensitve information remains private as it traverses the public network.
+
+### Proxy Service
+
+A proxy service is a server that acts on behalf of a client to access another service, functioning as an intermediary between clients and servers. Proxies provide various benefits, including anonymity, security, content filtering, and improved performance. They can exist at almost every layer of the networking model and come in various forms.
+
+###### Definition of a Proxy
+
+A proxy server facilitates requests from clients to other servers, providing additional functionality such as security and content management.
+
+##### Types of Proxies
+
+- **Web Proxies**: Specifically designed for web traffic, these proxies can cache web pages to improve performance. However, their use has declined due to faster internet speeds and the dynamic nature of modern web content. Today, web proxies are often used to enforce content restrictions, such as blocking access to certain websites during work hours.
+- **Reverse Proxies**: These appear as a single server to clients but actually represent multiple backend servers. They are commonly used for load balancing, distributing incoming requests across several servers to manage high traffic volumes effectively. Reverse proxies can also handle encryption and decryption tasks, offloading this resource-intensive work from the web servers.
+
+##### Load Balancing
+
+Reverse proxies can distribute traffic among multiple servers, similar to DNS round robin, ensuring that no single server becomes overwhelmed with requests.
+
+##### Encryption Management
+
+With a significant portion of web traffic being encrypted, reverse proxies often utilize specialized hardware for cryptographic processes, allowing backend servers to focus on serving content.
+
