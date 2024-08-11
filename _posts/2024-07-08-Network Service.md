@@ -305,3 +305,26 @@ DSL tech utilizes existing telephone infrastructure to provide high-speed intern
 - **Current Use**:
   While DSL technology is still in use, it has been largely surpassed by more advanced broadband solutions. However, it remains a viable option in areas where newer technologies are not yet available.
 
+#### Cable 
+
+The evolution of television broadcasting has shifted from wireless transmissions to cable technology, paralleling the growth of internet connectivity. Initially, television broadcasts relied on large towers to transmit signals to antennas in homes. However, starting in the late 1940s, cable television technologies were developed to provide access to remote areas lacking coverage from these towers.
+
+- **Early Cable Television**: The first cable television technologies aimed to extend service to rural homes that were out of range of broadcast towers.
+
+- **Cable Broadband Technology**: Cable companies realized that the coaxial cables used for television could transmit significantly more data than required for TV viewing, allowing for high-speed internet access. Cable broadband utilizes frequencies that do not interfere with television broadcasts to deliver internet services.
+
+- **Shared Bandwidth Model**: Unlike DSL, which provides a direct connection to a central office (CO) ensuring guaranteed bandwidth, cable internet operates on a shared bandwidth model. This means multiple users share a certain amount of bandwidth until it reaches the ISP’s core network, which can lead to slower speeds during peak usage times.
+
+- **Cable Modems**: Cable internet connections are typically managed through cable modems, which connect consumer networks to the cable modem termination system (CMTS). The CMTS serves as the point of connection between various cable connections and the ISP’s core network.
+
+#### WANTech
+
+1. **Initial Network Setup**: 
+   - **Non-Routable Address Space**: Used for internal IP addresses to conserve the limited supply of public IP addresses.
+   - **NAT Configuration**: Allows multiple internal devices to share a single public IP address for internet access.
+   - **DNS and DHCP Servers**: Simplify network configuration and management for users.
+2. **Expansion to Remote Access**: As the company grows, salespeople require access to internal resources while on the road. A VPN server is configured to enable secure remote connections, with port forwarding set up to ensure accessibility.
+3. **Introduction of WAN Technologies**: With the opening of a new office in another city, the need arises for a Wide Area Network (WAN) to connect multiple physical locations. A WAN allows different offices to function as a single network despite being geographically dispersed.
+4. **Local Loop and Demarcation Points**: Each office network ends at a demarcation point, where the ISP's network takes over. The local loop refers to the connection between the demarcation point and the ISP's regional office, which can include T-carrier lines or high-speed optical connections.
+5. **Data Transport Protocols**: WANs utilise various protocols at the data link layer to transport data between sites. These protocols are also fundamental to the operation of the internet, differing from the more familiar Ethernet protocols.
+
