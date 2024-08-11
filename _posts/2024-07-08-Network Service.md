@@ -95,11 +95,13 @@ Simple configuration files that declare all resource records for a particular zo
 
 Indicate other name services that might also be responsible for this zone.
 
-#### DHCP
+### DHCP
 
 Full name: Dynamic host configuration protocol
 
 Meaning: An application layer protocol that automates the configuration process of hosts on a network.
+
+Specific: DHCP is a network management protocol that automates the assignment of IP addresses and other network configuration parameters to devices on a network. It operates using a client-server model and is crucial for simplifying network management, especially in environments with numerous devices.
 
 ![081101](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/081101.png)
 
@@ -126,3 +128,38 @@ When a computer requests an IP, the DHCP server looks for its MAC address in a t
 If the MAC address isn't found, the DHCP server might fall back to automatic or dynamic allocation, or it might refuse to assign an IP altogether. 
 
 This can be used as a security measure to ensure that only devices that have had their MAC address specifically configured at the DHCP server will ever be able to obtain an IP and communicate on the network. 
+
+#### DHCP in Action
+
+##### DHCP discovery
+
+The process by which a client configured to use DHCP attempts to get network configuration information.
+
+The DHCP discovery process has four steps. 
+
+- Server Discovery
+
+  The DHCP client sends a **DHCP Discover** message as a broadcast to the network. Since the client does not yet have an IP address, this message is sent from the source IP address of 0.0.0.0 to the broadcast address 255.255.255.255, using UDP port 68 for the source and UDP port 67 for the destination.
+
+- IP Lease Offer
+
+  Upon receiving the DHCP Discover message, any DHCP server on the network responds with a **DHCP Offer** message. This message includes an available IP address for the client, along with other configuration details such as the subnet mask and default gateway. The DHCP Offer is also sent as a broadcast, allowing the client to recognize it by its MAC address.
+
+- IP Lease Request
+
+  The client selects one of the received DHCP Offers (if multiple are present) and responds with a **DHCP Request** message, indicating its acceptance of the offered IP address. This message is again broadcast to inform all DHCP servers of the client's choice.
+
+- IP Lease Acknowledgement
+
+  The DHCP server that sent the accepted offer responds with a **DHCP ACK** (Acknowledgement) message, confirming the lease of the IP address to the client. This message includes the lease duration and any additional configuration information.
+
+Key concept:
+
+- Lease Duration: The IP address assigned to the client is valid for a specific period, known as the lease time. Clients must renew their leases before expiration to retain their IP addresses.
+- Release of IP Address: Clients can voluntarily release their assigned IP address back to the DHCP server when they disconnect from the network, allowing the server to reallocate the address.
+- Dynamic Allocation Methods: DHCP can allocate IP addresses dynamically, automatically, or manually, depending on the configuration of the DHCP server.
+
+
+
+​	
+
