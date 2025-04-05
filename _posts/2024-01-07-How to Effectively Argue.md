@@ -1,7 +1,7 @@
 ---
-date: 2024-01-07 9:42:38 +0800
-categories: [Logic, Use]
-tags: [logic]     # TAG names should always be lowercase
+title: "How to Effectively Argue"
+date: 2024-01-07
+category: "Logic"
 ---
 
 Dear readers, have you ever found yourselves puzzled by the following: With the internet awash in a deluge of information, where false information runs rampant, how can one sift through the mountains of falsehoods and low signal-to-noise ratio data to find the correct information you seek? The answer lies in examining the argumentative process of that information;

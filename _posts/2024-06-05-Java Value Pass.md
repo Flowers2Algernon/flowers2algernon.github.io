@@ -1,7 +1,8 @@
 ---
-date: 2024-06-05 9:42:38 +0800
 categories: [Java, Use]
 tags: [java]     # TAG names should always be lowercase
+title: "Java Value Pass"
+date: 2024-06-05
 ---
 
 The question is [following](https://leetcode.com/problems/find-all-groups-of-farmland/?envType=daily-question&envId=2024-04-20):
