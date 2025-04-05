@@ -1,0 +1,19 @@
+# 在博客仓库中: .github/workflows/trigger-website-sync.yml
+name: Trigger Website Sync
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - '_posts/**'  # 当博客文章更新时触发
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger website sync
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.PAT_TOKEN }}  # 需要在博客仓库也添加相同的PAT_TOKEN
+          repository: Flowers2Algernon/personal-web  # 替换为你的个人网站仓库
+          event-type: blog_updated
