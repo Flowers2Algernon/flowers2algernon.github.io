@@ -1,0 +1,45 @@
+/* Hacker Terminal Styles */
+.hacker-terminal {
+  background-color: #000;
+  border: 1px solid #0F0;
+  border-radius: 5px;
+  padding: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #0F0;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px #0F0;
+}
+
+.hacker-terminal-content p {
+  margin: 0;
+  line-height: 1.5;
+  white-space: pre-wrap; /* Allows wrapping and respects whitespace */
+}
+
+.hacker-terminal-content .prompt {
+  color: #0F0;
+}
+
+.hacker-terminal-content .output {
+  color: #0F0;
+}
+
+.cursor {
+  display: inline-block;
+  background-color: #0F0;
+  width: 10px;
+  height: 1.2em;
+  animation: blink 1s step-end infinite;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  from, to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #0F0;
+  }
+}
