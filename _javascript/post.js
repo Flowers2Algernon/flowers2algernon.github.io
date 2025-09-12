@@ -1,5 +1,6 @@
 import { basic, initSidebar, initTopbar } from './modules/layouts';
 import {
+  initAccordion,
   loadImg,
   imgPopup,
   initLocaleDatetime,
@@ -25,3 +26,4 @@ runCpp();
 runJavascript();
 runPython();
 runRust();
+initAccordion();

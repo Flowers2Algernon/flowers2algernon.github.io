@@ -4,7 +4,7 @@ categories: [Front]
 tags: [javascript, react]     # TAG names should always be lowercase
 ---
 
-##### Responsive design
+## Responsive design
 
 Responsive design means that a web page can automatically stretch or shrink depending on the screen is displayed on.
 
@@ -38,7 +38,7 @@ A breakpoint can function in different ways across three different grids: fixed 
 
 ## Bootstrap
 
-###### What is bootstrap?
+### What is bootstrap?
 
 Bootstrap is a collection of pre-written code chunks in CSS and JS that allows you to create websites more quickly than if you had to create every bit of code from scratch.
 
@@ -50,13 +50,9 @@ Bootstrap saves significant time because all the CSS code that styles its grid a
 
 Bootstrap components provide a pre built set of reusable UI styles and elements for your web applications.
 
-### Virtual DOM
+## Virtual DOM
 
-When React builds out its tree of components, it build out its own dome in memory called the virtual DOM.
-
-The virtual DOM is a representedtation of the browser DOM that is kept in memory. React uses this virtual DOM to update the browser DOM, only when it needs to.
-
-###### Reconciliation
+### Reconciliation
 
 React checks to see if the HTML components in the virtual DOM matchs the browser DOM. If a change is required, the browser DOM is updated. If nothing has changed, then no update is performed.
 
@@ -72,21 +68,21 @@ This is called the reconciliation process and can be broken into the following s
 
 As updating the browser DOM can be a slow operation, this process helps to reduce the number of updates to the browser DOM by only updating when it is necessary.
 
-But even with this process, if a lot of elements are updated by an event, pushing the update to the browser DOM can still be expensive and cause slow performance in the web application.
+But even with this process, if a lot of an elements are updated by an event, pushing the update to the browser DOM can still be expensive and cause slow performance in the web application.
 
 To solve this, React designed a solution named React FIber Architecture.
 
-###### React Fiber Architecture
+### React Fiber Architecture
 
 The Fiber Architecture allows React to incrementally render the web page. What this means is that instead of immediatedly updating the browser DOM with all virtual DOM changes, React can spread the update over time. But what does "over time" mean?
 
 React can optimize when and where updates occur to the browser DOM to significantly imporve application performance and respondsiveness to user input. Think of it as a priority system. The highest priority changes, the elements visiable to the user, are updated first. While lower priority changes, the elements not currently displayed, are updated later.
 
-###### Component hierarchy
+### Component hierarchy
 
 Every React application contains at least one component, the root component or app component. Components are added to the app component to build out a tree structure of components that make up the application.
 
-### Object Literals and the Dot Notation in JS
+## Object Literals and the Dot Notation in JS
 
 One of the most common ways of building an object in JavaScript is using the object literal syntax: `{}`.
 
@@ -167,7 +163,7 @@ house.windows = 11;
 console.log(house);//{rooms: 3, color: "brown", priceUSD: 10000, windows: 11}
 ```
 
-### Object literals and the brackets notation
+## Object literals and the brackets notation
 
 There is an alternative syntax to the dot notation known as the brackets notation. To understand how it works, it's best to use an example, so I'll go through the process of coding the `house2` object again, in the same way that I did with the dot notation, but this time I will use brackets notation.
 
@@ -244,7 +240,7 @@ Specifically, the first time it ran, it was evaluated like this:
 
 This allowed me to loop over each of the values stored inside the `drone` object based on each of its properties' keys. 
 
-### Arrays are Objects
+## Arrays are Objects
 
 In JavaScript, Arrays are objects. That means that arrays also have some built-in properties and methods.
 
@@ -291,7 +287,7 @@ console.log(simpleArr);// ['apple','pear','plum']
 
 
 
-### Object Method
+## Object Method
 
 An object in Js consists of key-value parts, known as properties.
 
@@ -366,23 +362,9 @@ car.turnTheKey();
 car.lightsOn();
 ```
 
-### Errors in JavaScript
+## Errors in JavaScript
 
-Here are some of the most common errors in JS:
-
-- ReferenceError
-- SyntaxError
-- TypeError
-- RangeError
-
-There are some other errors in JS:
-
-- AggregateError
-- Error
-- InternalError
-- URIError
-
-#### ReferenceError
+### ReferenceError
 
 A ReferenceError gets thrown when, for example, one tries to use variables that haven't been declared anywhere.
 
@@ -398,7 +380,7 @@ If the variable named `username` hasn't been declared, the above line of code wi
 Uncaught ReferenceError: username is not defined
 ```
 
-#### SyntaxError
+### SyntaxError
 
 Any kind of invalid JavaScript code will cause a SyntaxError:
 
@@ -412,7 +394,7 @@ The above line of code will throw the following error:
 Uncaught SyntaxError: Unexpected string
 ```
 
-#### TypeError
+### TypeError
 
 A TypeErrir is thrown when, for example, trying to run a method on a non-supported data type.
 
@@ -422,7 +404,7 @@ A simple example is attempting to run the `pop()` method on a string:
 "hello".pop() // UncaughtError: "hello".pop is not a function
 ```
 
-#### RangeError
+### RangeError
 
 A RangeError is thrown when we're giving a value to a function, but that value is out of the allowed range of acceptable input values.
 
@@ -438,7 +420,7 @@ However, if I try to use a non-existing number system, such as an imaginary Base
 (10).toString(100); // Uncaught RangeError: toString() radix argument must between 2 and 36
 ```
 
-### Return values from functions
+## Return values from functions
 
 Many functions, by default, return the value of `undefined`.
 
@@ -481,7 +463,7 @@ Hello
 'Hello'
 ```
 
-### FP and OOP paradigm
+## FP and OOP paradigm
 
 "There are actually several styles of coding, also known as paradigm. A common style is called functional programming, or FP for short".
 
@@ -544,7 +526,7 @@ Here are some of the most important concepts in FP:
 - Higher-order functions
 - Pure functions and side-effects
 
-#### First-class functions
+### First-class functions
 
 It is often said that functions in JS are "first-class citizens". What does that means?
 
@@ -587,7 +569,7 @@ With all this code set, I can then invoke the `addTwoNums()` function, passing i
 
 **This works because functions in JS are trully first-class citizens, which can be assigned to variable names and passed around just like I would pass around a string, a number, an object, etc**
 
-#### Higher-order functions
+### Higher-order functions
 
 A higher-order function is a function that has either one or both of the following characteristics:
 
@@ -613,7 +595,7 @@ addTwoNums(specificNum, specificNum); // returned number is 84
 addTwoNums(specificNum, randomNum); // returned number is 42 + some random number
 ```
 
-#### Pure functions
+### Pure functions
 
 Another concept of functional programming are pure functions.
 
@@ -637,11 +619,11 @@ addTwoNums(5,6);//11
 
 The output will always be the same.
 
-### The Principles of OOP
+## The Principles of OOP
 
 The four fundamental OOP principles are inheritance, encapsulation, abstraction and polymorphism. The thing to remember about Objects is that they exist in a hierarchal structure. Meaning that the original base or super class for everything is the object class, all objects derive from this class.
 
-#### OOP Principles: Inheritance
+### OOP Principles: Inheritance
 
 It works like this:
 
@@ -659,7 +641,7 @@ class Bird extends Animal{/* ...class code here... */ }
 class Eagle extends Bird{/* ...class code here... */ }
 ```
 
-#### OOP Principles: Encapsulation
+### OOP Principles: Encapsulation
 
 In the simplest terms, the encapsulation has to do with making a code implemetation "hidden" from other users, in the sense that they don't have to know how the code works when use the code.
 
@@ -671,14 +653,14 @@ For example:
 
 I don't really need to worry or even waste time thinking about how the `toUpperCase()` method works. All I want is to use it, since I know it's available to me.
 
-#### OOP Principles: Abstraction
+### OOP Principles: Abstraction
 
 Abstraction is all about writing code in a way that will make it more generalized.
 
 - An abstraction is about extracting the concept of what you're trying to do, rather than dealing with a specific manifestation of that concept.
 - Encapsulation is about you not having access to, or or not being concerned with, how some implementation works internally.
 
-#### OOP Principles: Polymorphism
+### OOP Principles: Polymorphism
 
 Means: something that can take on many shapes.
 
@@ -714,7 +696,7 @@ ringTheBell(bicycle);//Ring, ring! Watch out, please!
 ringTheBell(door); // "Ring, ring! Come here, please!"
 ```
 
-### Creating class
+## Creating class
 
 All objects that are built from the prototype share the same functionality.
 
@@ -867,7 +849,7 @@ Get the following results:
 highSpeed1.toggleLights(); // Lights on? true, Lights are 100% operational.
 ```
 
-### Default Parameter
+## Default Parameter
 
 For example, consider a function declaration without default parameters set:
 
@@ -952,7 +934,7 @@ better.calculate(); // Result: 6
 
 This approach really shines when building inheritance using classes, as it makes it possible to provide only the custom properties in the sub-class, while still accepting all the default parameters from the super-class constructor.
 
-### For of loops and objects
+## For of loops and objects
 
 To begin, it's important to know that a for loop connot work on an object directly. Since **an object is not utterable**.
 
@@ -997,9 +979,9 @@ But how?
 
 There are three built-in methods: `Object.keys()`, `Object.values()`, `Object.entries()`.
 
-#### Built-in methods:
+### Built-in methods:
 
-##### The `Object.keys()` method
+#### The `Object.keys()` method
 
 The `Object.keys()` method receives an object as its parameter. Remember, this is **the object you want to loop over**.
 
@@ -1017,7 +999,7 @@ console.log(Object.keys(car2)); //['speed', 'color']
 
 So, when I run `Object.keys()` and pass it my `car2` object, **the returned value is an array of strings**, where each string is a property key of the properties contained in my `car2` object.
 
-##### The `Object.values()` method
+#### The `Object.values()` method
 
 Another useful method is `Object.values()`:
 
@@ -1029,7 +1011,7 @@ const car3 {
 console.log(Object.values(car3)); //[300, 'yellow']
 ```
 
-##### The `Object.entries()` method
+#### The `Object.entries()` method
 
 Which returns an array listing both the keys and the values.
 
@@ -1049,9 +1031,9 @@ The output is:
 
 You get an array of arrays, where each array item has two members, the first being a property's key, and the second being a property's value.
 
-### Template literals 
+## Template literals
 
-##### what are template literals?
+### what are template literals?
 
 Template literals are an alternative way of working with strings, Up until ES6, the only way to build strings in JavaScript was to delimit them in either single quotes or double quotes:
 
@@ -1070,7 +1052,7 @@ The above code snippet is an example of a template string, which is also knwon a
 
 With template literals, an expression can be embedded in a *placeholder*. A placeholder is represented by ${}, with anything within the curly brackets treated as JavaScript and anything outside the brackets treated as a string.
 
-##### Differences between a template and regular string
+### Differences between a template and regular string
 
 There are several ways in which a template string is different from a regular string.
 
@@ -1098,9 +1080,9 @@ var place = "World";
 console.log(greet + " " + place + "!");//display both variables without using template literals
 ```
 
-### Basic DS in JS
+## Basic DS in JS
 
-##### Working with arrays in JS
+### Working with arrays in JS
 
 The following will focus on three specific methods:
 
@@ -1108,7 +1090,7 @@ The following will focus on three specific methods:
 - filter
 - map
 
-###### The `forEach` method
+#### The `forEach` method
 
 The basic syntax:
 
@@ -1131,7 +1113,7 @@ The result of running the above code is this:
 
 The `forEach()` method accepts a function that will work on each array item.
 
-###### The `filter()` method
+#### The `filter()` method
 
 It filters your arrays based on a specific test. Those array items that pass the test are returned.
 
@@ -1152,7 +1134,7 @@ Here's the returned array value:
 
 Similar to the `forEach()` method, the `filter()` method also accepts a function and that function performs some work on each of the items in the array.
 
-###### The `map` method
+#### The `map` method
 
 This method is used to map each array item over to another array's item, based on whatever work is performed inside the function that is passed-in to the map as a parameter.
 
@@ -1168,7 +1150,7 @@ The return value from the above code is:
 [0,1,2,3,4,5]
 ```
 
-##### Working with Objects in JS
+### Working with Objects in JS
 
 For example: Do a task about convert an object to an array:
 
@@ -1193,7 +1175,7 @@ The result:
 
 Although this is possible and works, having to do something like this might mean that you haven't chosen the correct data structure to work with in your code.
 
-##### Working with Maps in JS
+### Working with Maps in JS
 
 Creat a map:
 

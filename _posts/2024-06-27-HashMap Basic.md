@@ -2,9 +2,10 @@
 date: 2024-06-27 13:42:38 +0800
 categories: [DSA, Hash Table]
 tags: [dsa, hash table]     # TAG names should always be lowercase
+series: "HashMaps"
 ---
 
-#### What is HashTable
+## What is HashTable
 
 > Official definition: A hash table is a data structure that allows direct access based on the value of the key.
 
@@ -22,33 +23,33 @@ We just need to initialise the hash table by storing all the students' names fro
 
 Mapping student names to the hash table involves a **hash function**.
 
-#### Hash function
+## Hash function
 
 Using the above example, we put the student's name to an index in the hash table, you can quickly determine whether the student is in the school by querying the index.
 
 ![062702](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062702.png)
 
-###### What if the value obtained from hashCode is greater than the size of the hash table? 
+### What if the value obtained from hashCode is greater than the size of the hash table?
 
 In this case, we perform a modulo operation on the value to ensure that the mapped index values fall within the hash table. 
 
-###### What if the number of students exceeds the size of the hash table?
+### What if the number of students exceeds the size of the hash table?
 
 Even if the hash function distributes the values evenly, it cannot prevent some student's names from being mapped to the same index in the hash table.
 
 So, we need to know **hash collisions**.
 
-#### Hash collisions
+## Hash collisions
 
 In the following image, the tim and simon both mapped at the index of 1, this situation, we called "hash collisions."
 
 ![062703](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062703.png)
 
-#### Solve hash collisions
+## Solve hash collisions
 
 Generally, there are two methods to resolve hash collisions: chaining and linear probing.
 
-##### Method 1: Chaining
+### Method 1: Chaining
 
 In the above example, Tim and Simon are both stored in index 1. We can use a linked list to store all the colliding elements, this way ,we can find both Tim and Simon through the index.
 
@@ -56,7 +57,7 @@ In the above example, Tim and Simon are both stored in index 1. We can use a lin
 
 In fact, chaining requires choosing an appropriate size for the hash table so that it neither wastes a lot of memory due to empty array elements nor wastes too much time searching due to excessively long linked lists.
 
-##### Method 2: Linear Probing
+### Method 2: Linear Probing
 
 When using the linear probing method, you must ensure that the table size is greater than the data size. We need to rely on empty slots in the hash table to resolve collisions.
 
@@ -66,13 +67,13 @@ Therefore, the table size must be greater than the data size; otherwise, there w
 
 ![062705](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062705.png)
 
-#### Summary
+## Summary
 
 To summarise, when we need to quickly determine whether an element appears in a set or other box, we should consider using the hash table
 
 However, hashing trades space for time, as we need to use additional arrays, sets, or maps to store the data in order to achieve fast lookups.
 
-#### Valid Anagram
+## Valid Anagram
 
 > Given two strings `s` and `t`, return `true` *if* `t` *is an anagram of* `s`*, and* `false` *otherwise*.
 >
@@ -126,7 +127,7 @@ class Solution {
 }
 ```
 
-#### Intersection of Two Arrays
+## Intersection of Two Arrays
 
 > Given two integer arrays `nums1` and `nums2`, return *an array of their intersection*. Each element in the result must be **unique** and you may return the result in **any order**.
 >
@@ -160,7 +161,7 @@ class Solution {
 }
 ```
 
-#### Happy Number
+## Happy Number
 
 >Write an algorithm to determine if a number `n` is happy.
 >

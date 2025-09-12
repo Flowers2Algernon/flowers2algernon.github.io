@@ -1,0 +1,18 @@
+{%- if page.series -%}
+  {%- assign series_posts = site.posts | where: "series", page.series | sort: "date" -%}
+  <div class="card my-4">
+    <div class="card-header">
+      Part of the series: <strong>{{ page.series }}</strong>
+    </div>
+    <ul class="list-group list-group-flush">
+      {%- for post in series_posts -%}
+        <li class="list-group-item {% if page.url == post.url %}active{% endif %}">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          {%- if page.url == post.url -%}
+            <span class="ms-2 badge bg-primary rounded-pill">You are here</span>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}
