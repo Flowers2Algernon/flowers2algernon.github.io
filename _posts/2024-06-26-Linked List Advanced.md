@@ -2,9 +2,10 @@
 date: 2024-06-26 12:42:38 +0800
 categories: [DSA, Linked List]
 tags: [dsa, linked list]     # TAG names should always be lowercase
+series: "Linked Lists"
 ---
 
-### Swap Nodes in Pairs
+## Swap Nodes in Pairs
 
 > Given a linked list, swap every two adjacent nodes and return its head. You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)
 >
@@ -55,7 +56,7 @@ class Solution {
 }
 ```
 
-### Remove Nth Node From End of List
+## Remove Nth Node From End of List
 
 > Given the `head` of a linked list, remove the `nth` node from the end of the list and return its head.
 >
@@ -115,7 +116,7 @@ class Solution {
 }
 ```
 
-### Intersection of Two Linked Lists
+## Intersection of Two Linked Lists
 
 > Given the heads of two singly linked-lists `headA` and `headB`, return *the node at which the two lists intersect*. If the two linked lists have no intersection at all, return `null`.
 >
@@ -142,7 +143,7 @@ class Solution {
 > - Note that the intersected node's value is not 1 because the nodes with value 1 in A and B (2nd node in A and 3rd node in B) are different node references. In other words, they point to two different locations in memory, while the nodes with value 8 in A and B (3rd node in A and 4th node in B) point to the same location in memory.
 > ```
 
-###### Method one:
+### Method one:
 
 In simple terms, it's about finding the pointer to the intersection node of two linked lists. Be note that the intersection is not about equal values, but about equal pointers.
 
@@ -205,7 +206,7 @@ public class Solution {
 }
 ```
 
-###### Method two:
+### Method two:
 
 We can use two iterations to do that. In the first iteration, we will reset the pointer of one linkedlist to the head of another linkedlist after it reaches the tail node. In the second iteration, we will move two pointers until they points to the same node. Our operations in first iteration will help us counteract the difference. So if two linkedlist intersects, the meeting point in second iteration must be the intersection point. If the two linked lists have no intersection at all, then the meeting pointer in second iteration must be the tail node of both lists, which is null.
 
@@ -465,7 +466,7 @@ Notice that if `list A` and `list B` have the **same length**, this solution wil
 
 
 
-### Linked List Cycle II
+## Linked List Cycle II
 
 > Given the `head` of a linked list, return *the node where the cycle begins. If there is no cycle, return* `null`.
 >
@@ -563,7 +564,7 @@ public class Solution {
 }
 ```
 
-###### Why at the first meeting point in the cycle, slow's passed nodes is `x+y` , rather than ` x + some number of cycle lengths + y`?
+### Why at the first meeting point in the cycle, slow's passed nodes is `x+y` , rather than ` x + some number of cycle lengths + y`?
 
 First, when slow enters the cycle, fast must have already entered the cycle.
 

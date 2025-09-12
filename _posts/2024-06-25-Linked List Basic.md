@@ -2,11 +2,12 @@
 date: 2024-06-25 22:42:38 +0800
 categories: [DSA, Linked List]
 tags: [dsa, linked list]     # TAG names should always be lowercase
+series: "Linked Lists"
 ---
 
-### Linked List 
+## Linked List
 
-#### What is Linked List?
+### What is Linked List?
 
 Linked List is a linear data structure in which elements are not stored at a contiguous location, rather they are linked using pointers.
 
@@ -24,7 +25,7 @@ Head and Tail:
 - Head: The linked list is accessed through the head node, which points to the first node in the list.
 - Tail: The last node in the list points to null, indicating the end of the list.
 
-#### Types of linked list?
+### Types of linked list?
 
 - Single linked list
 
@@ -46,7 +47,7 @@ It can be either singly or doubly linked.
 
 ![062505](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062505.png)
 
-#### How is Linked List Storage in memory?
+### How is Linked List Storage in memory?
 
 Linked List stored in memory is not continuous. It uses points to connect each node in memory.
 
@@ -56,7 +57,7 @@ Therefore, the nodes in a linked list are not contiguously distributed in memory
 
 This linked list has a starting node with the value 2 and an ending node with the value 7. The individual nodes are distributed across memory address spaces and linked together through pointers.
 
-#### How to define a linked list by yourself?
+### How to define a linked list by yourself?
 
 ```java
 class ListNode{
@@ -68,9 +69,9 @@ class ListNode{
 }
 ```
 
-#### Linked List operation?
+### Linked List operation?
 
-##### Delete nodes
+#### Delete nodes
 
 To delete a node from the linked list, we need to do the following steps:
 
@@ -87,7 +88,7 @@ ListNode cur = head;
 cur.next = cur.next.next;
 ```
 
-##### Insert nodes
+#### Insert nodes
 
 To insert a node after a given node in a linked list, we need to:
 
@@ -100,7 +101,7 @@ To insert a node after a given node in a linked list, we need to:
 
 ![062508](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062508.png)
 
-#### Linked List compared to Array?
+### Linked List compared to Array?
 
 |             | Insert/delete (Time complexity) | Insert/delete (Time complexity) | Situation                                                    |
 | ----------- | ------------------------------- | ------------------------------- | ------------------------------------------------------------ |
@@ -109,7 +110,7 @@ To insert a node after a given node in a linked list, we need to:
 
 
 
-### Remove Linked List Elements
+## Remove Linked List Elements
 
 > Given the `head` of a linked list and an integer `val`, remove all the nodes of the linked list that has `Node.val == val`, and return *the new head*.
 
@@ -174,7 +175,7 @@ class Solution {
 
 Note：The condition in the while loop is cur.next != null, because the current position cur has already been processed.
 
-### Reverse Linked List
+## Reverse Linked List
 
 > Given the `head` of a singly linked list, reverse the list, and return *the reversed list*.
 >
@@ -188,7 +189,7 @@ In fact, we only need to change the direction of the 'next' pointers in the link
 
 Previously, the head node of the linked list was the element 1. After the reversal, the head node is the element 5. No nodes were added or deleted; only the direction of the 'next' pointers was changed.
 
-###### Use two pointer methods to reverse:
+### Use two pointer methods to reverse:
 
 ![062501](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062501.gif)
 
@@ -216,7 +217,7 @@ class Solution {
 }
 ```
 
-###### Use recursion to reverse a linked list:
+### Use recursion to reverse a linked list:
 
 ```java
 class Solution {
@@ -238,7 +239,7 @@ class Solution {
 
 
 
-### Design Linked List
+## Design Linked List
 
 > Design your implementation of the linked list. You can choose to use a singly or doubly linked list.
 > A node in a singly linked list should have two attributes: `val` and `next`. `val` is the value of the current node, and `next` is a pointer/reference to the next node.

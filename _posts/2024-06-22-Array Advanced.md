@@ -2,9 +2,10 @@
 date: 2024-06-22 22:42:38 +0800
 categories: [Java, Array]
 tags: [java, array]     # TAG names should always be lowercase
+series: "Arrays"
 ---
 
-#### Squares of a Sorted Arrays
+## Squares of a Sorted Arrays
 
 > Given an integer array `nums` sorted in **non-decreasing** order, return *an array of **the squares of each number** sorted in non-decreasing order*.
 
@@ -51,7 +52,7 @@ class Solution {
 }
 ```
 
-#### Minimum Size Subarray Sum
+## Minimum Size Subarray Sum
 
 Question:
 
@@ -112,7 +113,7 @@ class Solution {
 
 - Sliding window: 
 
-###### What does sliding window mean?
+### What does sliding window mean?
 
 A sliding window is a process that constantly adjusts the start and end positions of the subsequence and eventually gets our needed outcomes.
 
@@ -157,7 +158,7 @@ class Solution {
 }
 ```
 
-#### Spiral Matrix II
+## Spiral Matrix II
 
 > Given a positive integer `n`, generate an `n x n` `matrix` filled with elements from `1` to `n2` in spiral order.
 >

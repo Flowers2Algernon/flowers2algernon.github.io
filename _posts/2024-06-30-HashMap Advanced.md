@@ -2,9 +2,10 @@
 date: 2024-06-28 10:00:38 +0800
 categories: [DSA, Hash Table]
 tags: [dsa, hash table]     # TAG names should always be lowercase
+series: "HashMaps"
 ---
 
-### 4Sum II
+## 4Sum II
 
 > Given four integer arrays `nums1`, `nums2`, `nums3`, and `nums4` all of length `n`, return the number of tuples `(i, j, k, l)` such that:
 >
@@ -63,7 +64,7 @@ public class Solution454 {
 }
 ```
 
-### Ransom Note
+## Ransom Note
 
 > Given two strings `ransomNote` and `magazine`, return `true` *if* `ransomNote` *can be constructed by using the letters from* `magazine` *and* `false` *otherwise*.
 >
@@ -119,26 +120,8 @@ class Solution {
 }
 ```
 
-### 3Sum
+## 3Sum
 
-<<<<<<< HEAD
->Given an integer array nums, return all the triplets `[nums[i], nums[j], nums[k]]` such that `i != j`, `i != k`, and `j != k`, and `nums[i] + nums[j] + nums[k] == 0`.
->
->Notice that the solution set must not contain duplicate triplets.
->
->**Example :**
->
->```
->Input: nums = [-1,0,1,2,-1,-4]
->Output: [[-1,-1,2],[-1,0,1]]
->Explanation: 
->nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.
->nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.
->nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.
->The distinct triplets are [-1,0,1] and [-1,-1,2].
->Notice that the order of the output and the order of the triplets does not matter.
->```
-=======
 > Given an integer array nums, return all the triplets `[nums[i], nums[j], nums[k]]` such that `i != j`, `i != k`, and `j != k`, and `nums[i] + nums[j] + nums[k] == 0`.
 >
 > Notice that the solution set must not contain duplicate triplets.
@@ -180,7 +163,7 @@ We fix `i` at index `0` at first. Then we have the other two indices, `j` and `k
 
 We calculate a total of 3 numbers then if the total is 0, that is one of the target triplets.
 
-###### How can we decide and move `j` or `k` to the next index?
+### How can we decide and move `j` or `k` to the next index?
 
 My strategy is to sort the input array so we can decide which index we should move.
 
@@ -191,13 +174,13 @@ My strategy is to sort the input array so we can decide which index we should mo
   i  j        k
 ```
 
-###### Why do we need to sort the input array?
+### Why do we need to sort the input array?
 
 We want a small total next time if the total is greater than 0. In that case, we should move `k` to the next because input array is sorted. When `k` moves to the left index, we will get a small total compared with the current total.
 
 Otherwise, if the total is smaller than `0`, we want a big total next time, so we need to move j to the right index to get a big total.
 
-###### Simulation
+### Simulation
 
 ```
 [-4,-1,-1,0,1,2]
@@ -348,7 +331,7 @@ public class Solution15 {
 }
 ```
 
-### 4Sum
+## 4Sum
 
 > Given an array `nums` of `n` integers, return *an array of all the **unique** quadruplets* `[nums[a], nums[b], nums[c], nums[d]]` such that:
 >

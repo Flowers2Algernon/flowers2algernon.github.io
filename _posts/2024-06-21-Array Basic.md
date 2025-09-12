@@ -2,9 +2,10 @@
 date: 2024-06-21 22:42:38 +0800
 categories: [Java, Array]
 tags: [java, array]     # TAG names should always be lowercase
+series: "Arrays"
 ---
 
-### What is Array?
+## What is Array?
 
 An array is a collection of the same type of data stored in a contiguous memory space.
 
@@ -21,9 +22,9 @@ For example, when we need to delete an element with a subscript of 3, we inevita
 
 The array's elements cannot be deleted; they are only overwritten.
 
-##### Two-dimensional array memory space arrangement problem
+### Two-dimensional array memory space arrangement problem
 
-###### In C++
+#### In C++
 
 ```c++ 
 void test() {
@@ -49,7 +50,7 @@ The output is:
 
 Note that the address is hexadecimal, so in C++, the two-dimensional array memory space is a continuous line.
 
-###### In Java
+#### In Java
 
 {% raw %}
 
@@ -78,7 +79,7 @@ here is not a continuous number, so actually in Java the two-dimensional array m
 
  ![in Java the two-dimensional array memory space](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/062102.png)
 
-### Binary Search
+## Binary Search
 
 [Binary Search Problem]: https://leetcode.com/problems/binary-search/
 
@@ -89,9 +90,9 @@ this problem's prerequisites are:
 
 You can't solve this problem because you don't understand the definition of interval.
 
-##### Two methods of binary search： regarding right to left interval
+### Two methods of binary search： regarding right to left interval
 
-###### The first method
+#### The first method
 
 Define the target in a left-closed and right-closed interval， which means**[left, right]**
 
@@ -125,7 +126,7 @@ public:
 - Time complexity：O(log n)
 - Space complexity：O(1)
 
-###### The second method
+#### The second method
 
 If the target is in a left-close and right-open interval， means [left, right)
 
@@ -153,7 +154,7 @@ public:
 };
 ```
 
-### Remove element
+## Remove element
 
 [No 27 ]: https://leetcode.com/problems/remove-element/
 

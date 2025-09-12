@@ -36,3 +36,67 @@ main {
 #sidebar ul li.nav-item a.nav-link span {
   letter-spacing: 0.05rem !important; /* Reset the excessive letter spacing */
 }
+
+/* --- Custom SCSS code starts --- */
+
+// Highlight the author's comments in Giscus
+.gsc-comment-author:has(span.color-box-border-info) {
+  padding: 0.5rem 0.75rem !important;
+  border: 1px solid var(--main-border-color);
+  background: var(--main-bg-color);
+  border-radius: 8px;
+  margin: -0.5rem -0.75rem 0.5rem;
+}
+
+/* Accordion styles for collapsible post sections */
+.accordion-header {
+  cursor: pointer;
+  position: relative;
+  padding-right: 2rem; /* space for the icon */
+  user-select: none; /* prevent text selection */
+}
+
+.accordion-header::after {
+  content: '\\f067'; /* FontAwesome plus icon */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease-in-out;
+}
+
+.accordion-header.active::after {
+  content: '\\f068'; /* FontAwesome minus icon */
+}
+
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+/* Typewriter animation for site subtitle */
+.site-subtitle {
+  overflow: hidden; /* Ensures the text does not reveal before the animation */
+  border-right: 0.15em solid orange; /* The typewriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.1em;
+  animation:
+    typing 2.5s steps(30, end),
+    blink-caret 0.75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: orange; }
+}

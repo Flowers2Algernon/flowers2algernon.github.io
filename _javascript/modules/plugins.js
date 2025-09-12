@@ -1,3 +1,4 @@
+export { initAccordion } from './components/accordion';
 export { categoryCollapse } from './components/category-collapse';
 export { initClipboard } from './components/clipboard';
 export { loadImg } from './components/img-loading';
