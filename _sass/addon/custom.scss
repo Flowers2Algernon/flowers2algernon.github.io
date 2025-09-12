@@ -31,3 +31,8 @@ main {
   transform: translateY(-5px); /* Lift the card on hover */
   box-shadow: var(--card-shadow-hover, 0 8px 15px rgba(0, 0, 0, 0.1)); /* A more prominent shadow */
 }
+
+/* Fix for sidebar letter spacing */
+#sidebar .nav-link span {
+  letter-spacing: normal; /* Reset the excessive letter spacing */
+}
