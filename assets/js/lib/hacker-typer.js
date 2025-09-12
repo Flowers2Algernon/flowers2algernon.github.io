@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (charIndex < text.length) {
         outputSpan.textContent += text.charAt(charIndex);
         charIndex++;
-        setTimeout(typeChar, Math.random() * 100 + 30); // Randomize typing speed
+        setTimeout(typeChar, Math.random() * 50 + 10); // Faster typing speed
       } else {
         // Typing of the current line is complete.
         // Move cursor to a new line visually for the next prompt.
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
             line.removeChild(cursor);
         }
         lineIndex++;
-        setTimeout(typeLine, 300); // Delay before typing next line
+        setTimeout(typeLine, 100); // Faster delay before next line
       }
     }
 
