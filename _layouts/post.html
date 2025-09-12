@@ -12,87 +12,77 @@ tail_includes:
 {% include lang.html %}
 
 <article class="px-1">
-  <header>
-    <h1 data-toc-skip>{{ page.title }}</h1>
+  <header class="post-header">
+    <h1 class="post-title" data-toc-skip>{{ page.title }}</h1>
     {% if page.description %}
-      <p class="post-desc fw-light mb-4">{{ page.description }}</p>
+      <p class="post-desc fs-5 fw-light text-muted">{{ page.description }}</p>
     {% endif %}
 
-    <div class="post-meta post-meta-custom text-muted">
-      <!-- published date -->
-      <span>
-        {{ site.data.locales[lang].post.posted }}
-        {% include datetime.html date=page.date tooltip=true lang=lang %}
-      </span>
+    <div class="post-meta text-muted d-flex flex-wrap">
+      <!-- author -->
+      <div>
+        {% if page.author %}
+          {% assign authors = page.author %}
+        {% elsif page.authors %}
+          {% assign authors = page.authors %}
+        {% endif %}
+        {% if authors %}
+          {% for author in authors %}
+            {% if site.data.authors[author].url -%}
+              <a href="{{ site.data.authors[author].url }}">{{ site.data.authors[author].name }}</a>
+            {%- else -%}
+              {{ site.data.authors[author].name }}
+            {%- endif %}
+            {%- unless forloop.last -%}, {% endunless -%}
+          {% endfor %}
+        {% else %}
+          <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>
+        {% endif %}
+      </div>
 
-      <!-- lastmod date -->
-      {% if page.last_modified_at and page.last_modified_at != page.date %}
-        <span>
-          {{ site.data.locales[lang].post.updated }}
-          {% include datetime.html date=page.last_modified_at tooltip=true lang=lang %}
-        </span>
+      <div class="ms-3">
+        <i class="iconfont icon-Monthdatecalendar"></i>
+        <span class="ms-1">{% include datetime.html date=page.date lang=lang %}</span>
+      </div>
+
+      <div class="ms-3">
+        <i class="iconfont icon-Time"></i>
+        <span class="ms-1">{% include read-time.html content=content lang=lang %}</span>
+      </div>
+
+      {% if site.pageviews.provider and site.analytics[site.pageviews.provider].id %}
+        <div class="ms-3">
+          <i class="iconfont icon-Eye"></i>
+          <span id="pageviews" class="ms-1">
+            <i class="iconfont icon-spinner fa-spin"></i>
+          </span>
+        </div>
       {% endif %}
+    </div>
 
-      {% if page.image %}
+    <!-- lastmod date -->
+    {% if page.last_modified_at and page.last_modified_at != page.date %}
+      <div class="post-lastmod text-muted mt-2">
+        <i class="iconfont icon-edit-square"></i>
+        <span class="ms-1">{{ site.data.locales[lang].post.updated }}</span>
+        <span class="ms-1">{% include datetime.html date=page.last_modified_at tooltip=true lang=lang %}</span>
+      </div>
+    {% endif %}
+
+    {% if page.image %}
+      <div class="mt-4 mb-4">
         {% capture src %}src="{{ page.image.path | default: page.image }}"{% endcapture %}
         {% capture class %}class="preview-img{% if page.image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
         {% capture alt %}alt="{{ page.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
-
         {% if page.image.lqip %}
           {%- capture lqip -%}lqip="{{ page.image.lqip }}"{%- endcapture -%}
         {% endif %}
-
-        <div class="mt-3 mb-3">
-          <img {{ src }} {{ class }} {{ alt }} w="1200" h="630" {{ lqip }}>
-          {%- if page.image.alt -%}
-            <figcaption class="text-center pt-2 pb-2">{{ page.image.alt }}</figcaption>
-          {%- endif -%}
-        </div>
-      {% endif %}
-
-      <div class="d-flex justify-content-between">
-        <!-- author(s) -->
-        <span>
-          {% if page.author %}
-            {% assign authors = page.author %}
-          {% elsif page.authors %}
-            {% assign authors = page.authors %}
-          {% endif %}
-
-          {{ site.data.locales[lang].post.written_by }}
-
-          <em>
-            {% if authors %}
-              {% for author in authors %}
-                {% if site.data.authors[author].url -%}
-                  <a href="{{ site.data.authors[author].url }}">{{ site.data.authors[author].name }}</a>
-                {%- else -%}
-                  {{ site.data.authors[author].name }}
-                {%- endif %}
-                {% unless forloop.last %}{{ '</em>, <em>' }}{% endunless %}
-              {% endfor %}
-            {% else %}
-              <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>
-            {% endif %}
-          </em>
-        </span>
-
-        <div>
-          <!-- pageviews -->
-          {% if site.pageviews.provider and site.analytics[site.pageviews.provider].id %}
-            <span>
-              <em id="pageviews">
-                <i class="iconfont icon-spinner fa-spin small"></i>
-              </em>
-              {{ site.data.locales[lang].post.pageview_measure }}
-            </span>
-          {% endif %}
-
-          <!-- read time -->
-          {% include read-time.html content=content prompt=true lang=lang %}
-        </div>
+        <img {{ src }} {{ class }} {{ alt }} w="1200" h="630" {{ lqip }}>
+        {%- if page.image.alt -%}
+          <figcaption class="text-center pt-2 pb-2">{{ page.image.alt }}</figcaption>
+        {%- endif -%}
       </div>
-    </div>
+    {% endif %}
   </header>
 
   <div class="content">
