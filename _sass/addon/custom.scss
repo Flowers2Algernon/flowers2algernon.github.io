@@ -1,0 +1,33 @@
+/* Custom styles for typography optimization */
+
+.content {
+  font-size: 1.1rem; /* Slightly larger for readability */
+}
+
+main {
+  line-height: 1.8; /* More breathing room for paragraphs */
+}
+
+/* Custom styles for post metadata */
+.post-meta-custom {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--main-border-color);
+  margin-bottom: 1.5rem;
+}
+
+.post-meta-custom > span,
+.post-meta-custom > div {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* Custom styles for homepage post cards */
+.post-preview {
+  /* Add transition for transform and box-shadow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.post-preview:hover {
+  transform: translateY(-5px); /* Lift the card on hover */
+  box-shadow: var(--card-shadow-hover, 0 8px 15px rgba(0, 0, 0, 0.1)); /* A more prominent shadow */
+}
