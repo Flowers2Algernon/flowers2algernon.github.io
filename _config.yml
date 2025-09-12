@@ -93,7 +93,7 @@ theme_mode: # [light | dark]
 backgroud_animation: false
 
 # 启用鼠标点击特效
-mouse_click_effect: false
+mouse_click_effect: true
 
 # 媒体资源 CDN 端点。
 # 注意一旦被分配，CDN 网址会被加在
@@ -130,7 +130,7 @@ panel:
 
 comments:
   # 帖子评论区全局开关，例如，'disqus'。保持为空表示禁用。
-  provider: "giscus"
+  provider:
   # provider 选项可以是如下：
   # disqus 评论系统 > https://disqus.com/
   disqus:
@@ -146,16 +146,15 @@ comments:
     avatar: mp # 默认头像  › https://waline.js.org/guide/client/avatar.html
   # Giscus 选项 › https://giscus.app
   giscus:
-    # Note: You need to fill in the following values for Giscus to work.
-    repo: "Flowers2Algernon/blog" # e.g. "user/repo"
-    repo_id: "R_kgDOMfA7NA" # e.g. "your_repo_id"
-    category: "Announcements" # e.g. "General"
-    category_id: "DIC_kwDOMfA7NM4Chpxe" # e.g. "your_category_id"
-    mapping: "pathname" # 可选项，默认为 'pathname'
-    strict: "0" # 可选项，默认为 '0'
-    input_position: "bottom" # 可选项，默认为 'bottom'
-    lang: "en" # 可选项，默认为 `site.lang` 的值
-    reactions_enabled: "1" # 可选项，默认为 1
+    repo: # <Github 用户名>/<仓库名>
+    repo_id:
+    category:
+    category_id:
+    mapping: # 可选项，默认为 'pathname'
+    strict: # 可选项，默认为 '0'
+    input_position: # 可选项，默认为 'bottom'
+    lang: # 可选项，默认为 `site.lang` 的值
+    reactions_enabled: # 可选项，默认为 1
 
 # 自托管静态资产，可选 › https://github.com/cotes2020/chirpy-static-assets
 assets:
