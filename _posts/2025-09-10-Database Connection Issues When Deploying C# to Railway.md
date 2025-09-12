@@ -304,6 +304,10 @@ public async Task<IActionResult> DatabaseHealth()
     curl -f $DEPLOYED_URL/api/diagnostic/connection || exit 1
 ```
 
+### Finally, got this:
+
+![081101](https://raw.githubusercontent.com/Flowers2Algernon/flowers2algernon.github.io/main/assets/images/091225.png)
+
 ## 📚 Lessons Learned
 
 ### 1. Environment Differences are Hidden Killers
