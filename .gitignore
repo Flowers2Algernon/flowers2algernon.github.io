@@ -30,3 +30,12 @@ package-lock.json
 .vscode
 !.vscode/settings.json
 !.vscode/extensions.json
+
+# 私密草稿 (只在本地，永不发布)；预览: jekyll serve --drafts
+_drafts/
+
+# OS / 编辑器杂物
+.DS_Store
+.ipynb_checkpoints/
+jekyll.log
+Untitled Folder/
