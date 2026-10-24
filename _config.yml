@@ -153,7 +153,7 @@ comments:
     mapping: "pathname" # 可选项，默认为 'pathname'
     strict: "0" # 可选项，默认为 '0'
     input_position: "bottom" # 可选项，默认为 'bottom'
-    lang: "zh-CN" # 可选项，默认为 `site.lang` 的值
+    lang: "en" # 可选项，默认为 `site.lang` 的值
     reactions_enabled: "1" # 可选项，默认为 1
 
 # 自托管静态资产，可选 › https://github.com/cotes2020/chirpy-static-assets

@@ -1,14 +1,9 @@
 ---
-
+title: "Database Connection Issues When Deploying C# to Railway"
 date: 2025-09-10 14:55:38 +0800
-
 categories: [Backend]
-
-tags: [c#,asp.net, railway,supabase,postgresql, deployment,troubleshooting]   # TAG names should always be lowercase
-
+tags: [csharp, asp.net, railway, supabase, postgresql, deployment, troubleshooting]
 ---
-
-# Solution for Database Connection Issues When Deploying C# .NET 8 API to Railway
 
 ## 📋 Project Background
 

@@ -9,8 +9,6 @@ image:
   alt: "Quiet landscape for reflection and focus"
 ---
 
-![2026 Year-End Reflection](https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80)
-
 > **Timeline Log:** Drafted on **October 24, 2026** *(Living document — to be updated as 2026 wraps up)*
 
 ---
