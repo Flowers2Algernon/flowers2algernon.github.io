@@ -1,16 +1,70 @@
-/* Hacker Terminal Styles */
+/* Enhanced Hacker Terminal Styles */
 .hacker-terminal {
-  background-color: #000;
-  border: 1px solid #0F0;
-  border-radius: 5px;
-  padding: 20px;
-  font-family: 'Courier New', Courier, monospace;
-  color: #0F0;
-  max-width: 800px;
-  margin: 0 auto;
-  box-shadow: 0 0 10px #0F0;
+  background-color: #050a05;
+  border: 1px solid #00ff66;
+  border-radius: 8px;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  color: #00ff66;
+  max-width: 840px;
+  margin: 1rem auto;
+  box-shadow: 0 0 20px rgba(0, 255, 102, 0.25), inset 0 0 30px rgba(0, 255, 102, 0.05);
   position: relative;
   overflow: hidden;
+}
+
+.hacker-terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0b190b;
+  border-bottom: 1px solid rgba(0, 255, 102, 0.35);
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  user-select: none;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 7px;
+}
+
+.terminal-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.terminal-dot.red { background-color: #ff5f56; }
+.terminal-dot.yellow { background-color: #ffbd2e; }
+.terminal-dot.green { background-color: #27c93f; }
+
+.terminal-title {
+  color: #7dffb3;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+.terminal-skip-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 255, 102, 0.5);
+  color: #00ff66;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.terminal-skip-btn:hover {
+  background: rgba(0, 255, 102, 0.15);
+  box-shadow: 0 0 8px rgba(0, 255, 102, 0.5);
+}
+
+.hacker-terminal-content {
+  padding: 22px 24px 26px;
+  font-size: 0.94rem;
 }
 
 .hacker-terminal::after {
@@ -22,15 +76,15 @@
   height: 100%;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 255, 0, 0.1),
-    rgba(0, 255, 0, 0.1) 1px,
+    rgba(0, 255, 102, 0.08),
+    rgba(0, 255, 102, 0.08) 1px,
     transparent 1px,
     transparent 2px
   );
   background-size: 100% 4px;
-  animation: scan 1.5s linear infinite;
+  animation: scan 2s linear infinite;
   pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.35;
 }
 
 @keyframes scan {
@@ -43,24 +97,72 @@
 }
 
 .hacker-terminal-content p {
-  margin: 0;
-  line-height: 1.5;
-  white-space: pre-wrap; /* Allows wrapping and respects whitespace */
+  margin: 0 0 8px 0;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+
+.hacker-terminal-content p.cmd-line {
+  margin-top: 14px;
+  color: #a6ffcb;
+  font-weight: 600;
+}
+
+.hacker-terminal-content p.cmd-line:first-child {
+  margin-top: 0;
 }
 
 .hacker-terminal-content .prompt {
-  color: #0F0;
+  color: #00ff66;
+  font-weight: 700;
+  user-select: none;
 }
 
 .hacker-terminal-content .output {
-  color: #0F0;
+  color: #00ff66;
+}
+
+.hacker-terminal-content .label {
+  color: #7dffb3;
+  font-weight: 600;
+}
+
+.hacker-terminal-content .badge-live {
+  display: inline-block;
+  font-size: 0.72rem;
+  padding: 0 6px;
+  margin-left: 6px;
+  border: 1px solid #00ff66;
+  border-radius: 3px;
+  color: #050a05;
+  background-color: #00ff66;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.hacker-terminal-content a.terminal-link {
+  color: #00ffff !important;
+  text-decoration: none !important;
+  border-bottom: 1px dashed #00ffff !important;
+  padding-bottom: 1px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.hacker-terminal-content a.terminal-link:hover {
+  color: #050a05 !important;
+  background-color: #00ffff !important;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+  border-bottom-color: transparent !important;
+  padding: 1px 4px;
+  border-radius: 3px;
 }
 
 .cursor {
   display: inline-block;
-  background-color: #0F0;
-  width: 10px;
-  height: 1.2em;
+  background-color: #00ff66;
+  width: 9px;
+  height: 1.15em;
   animation: blink 1s step-end infinite;
   margin-left: 5px;
   vertical-align: middle;
@@ -71,49 +173,25 @@
     background-color: transparent;
   }
   50% {
-    background-color: #0F0;
+    background-color: #00ff66;
   }
 }
 
 /* Glitch effect on hover */
 .hacker-terminal-content .output:hover {
-  animation: glitch 0.25s linear 3;
+  animation: glitch 0.25s linear 2;
 }
 
-@keyframes glitch{
+@keyframes glitch {
   0% {
-    text-shadow: 0.05em 0 0 rgba(0, 255, 0, 0.75),
-                 -0.05em -0.025em 0 rgba(0, 0, 0, 0.75),
-                 -0.025em 0.05em 0 rgba(0, 255, 0, 0.75);
-  }
-  15% {
-    text-shadow: 0.05em 0 0 rgba(0, 255, 0, 0.75),
-                 -0.05em -0.025em 0 rgba(0, 0, 0, 0.75),
-                 -0.025em 0.05em 0 rgba(0, 255, 0, 0.75);
-  }
-  16% {
-    text-shadow: -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
-                 0.025em 0.035em 0 rgba(0, 0, 0, 0.75),
-                 0.05em 0 0 rgba(0, 255, 0, 0.75);
-  }
-  49% {
-    text-shadow: -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
-                 0.025em 0.035em 0 rgba(0, 0, 0, 0.75),
-                 0.05em 0 0 rgba(0, 255, 0, 0.75);
+    text-shadow: 0.04em 0 0 rgba(0, 255, 102, 0.75),
+                 -0.04em -0.025em 0 rgba(0, 255, 255, 0.75);
   }
   50% {
-    text-shadow: 0.05em 0.025em 0 rgba(0, 255, 0, 0.75),
-                 0.05em 0 0 rgba(0, 0, 0, 0.75),
-                 0 -0.05em 0 rgba(0, 255, 0, 0.75);
-  }
-  99% {
-    text-shadow: 0.05em 0.025em 0 rgba(0, 255, 0, 0.75),
-                 0.05em 0 0 rgba(0, 0, 0, 0.75),
-                 0 -0.05em 0 rgba(0, 255, 0, 0.75);
+    text-shadow: -0.04em -0.025em 0 rgba(0, 255, 102, 0.75),
+                 0.025em 0.035em 0 rgba(0, 255, 255, 0.75);
   }
   100% {
-    text-shadow: -0.05em 0 0 rgba(0, 255, 0, 0.75),
-                 -0.025em -0.05em 0 rgba(0, 0, 0, 0.75),
-                 -0.025em -0.05em 0 rgba(0, 255, 0, 0.75);
+    text-shadow: none;
   }
 }

@@ -4,37 +4,34 @@ icon: icon-info
 order: 5
 ---
 
-## Hi, I'm Jinhong Zhu
+<link rel="stylesheet" href="/assets/css/hacker-style.css">
 
-I am the Founder & Product Engineer at **[Savour Season](https://www.savourseason.com)**, where I design, architect, and operate AI-native software products from concept to production.
+<div class="hacker-terminal">
+  <div class="hacker-terminal-header">
+    <div class="terminal-dots">
+      <span class="terminal-dot red"></span>
+      <span class="terminal-dot yellow"></span>
+      <span class="terminal-dot green"></span>
+    </div>
+    <span class="terminal-title">jin@savour-season: ~/whoami (zsh)</span>
+    <button type="button" class="terminal-skip-btn" title="Skip typing animation">SKIP &gt;&gt;</button>
+  </div>
+  <div class="hacker-terminal-content">
+    <p data-typer class="cmd-line" data-prompt="jin@savour-season:~$ ">./init_profile.sh --verbose</p>
+    <p data-typer><span class="label">User:</span> Jinhong Zhu (Jin)</p>
+    <p data-typer><span class="label">Timezone:</span> UTC+8 · Remote / Global</p>
+    <p data-typer><span class="label">Role:</span> Founder &amp; Product Engineer @ <a href="https://www.savourseason.com" target="_blank" rel="noopener noreferrer" class="terminal-link">Savour Season ↗</a></p>
+    <p data-typer><span class="label">Academic:</span> M.S. in Computer Science (AI) @ Georgia Tech | M.Comp @ Curtin</p>
+    <p data-typer class="cmd-line" data-prompt="jin@savour-season:~$ ">ls -la ./production-systems/</p>
+    <p data-typer>[01] <a href="https://www.celmock.com" target="_blank" rel="noopener noreferrer" class="terminal-link">CELMock (celmock.com) ↗</a> — AI CELPIP Mock Exam &amp; Speaking Telemetry <span class="badge-live">LIVE</span></p>
+    <p data-typer>[02] <a href="https://www.unirankhub.com" target="_blank" rel="noopener noreferrer" class="terminal-link">UniRankHub (unirankhub.com) ↗</a> — Global University Ranking Intelligence <span class="badge-live">LIVE</span></p>
+    <p data-typer>[03] <a href="https://www.visaduo.com" target="_blank" rel="noopener noreferrer" class="terminal-link">VisaDuo (visaduo.com) ↗</a> — Bilingual Global Visa Pathway Planner <span class="badge-live">LIVE</span></p>
+    <p data-typer class="cmd-line" data-prompt="jin@savour-season:~$ ">cat ./tech_stack.conf</p>
+    <p data-typer><span class="label">Core Stack:</span> Next.js · TypeScript · Python · PostgreSQL · Supabase · Redis · LLM Pipelines</p>
+    <p data-typer class="cmd-line" data-prompt="jin@savour-season:~$ ">cat ./endpoints.json</p>
+    <p data-typer><span class="label">Connect:</span> <a href="mailto:jinhong.zhu@gatech.edu" class="terminal-link">jinhong.zhu@gatech.edu</a> | <a href="https://github.com/Flowers2Algernon" target="_blank" rel="noopener noreferrer" class="terminal-link">GitHub ↗</a> | <a href="https://www.linkedin.com/in/jinhong-zhu" target="_blank" rel="noopener noreferrer" class="terminal-link">LinkedIn ↗</a></p>
+    <p data-typer><span class="label">System Log:</span> "Progress and Service" — building AI-native software from concept to production.</p>
+  </div>
+</div>
 
-After starting my career in large-scale engineering project management, I transitioned into computer science—completing my Master of Computing at **Curtin University** (GPA 4.0/4.0) and pursuing my **M.S. in Computer Science (Artificial Intelligence)** at **Georgia Institute of Technology**.
-
----
-
-### 🚀 Flagship Products
-
-* **[CELMock](https://www.celmock.com)** — *AI EdTech SaaS*  
-  An AI-evaluated CELPIP-General mock exam and practice platform featuring real-time speaking fluency telemetry and rubric-aligned LLM feedback across Listening, Reading, Writing, and Speaking.
-* **[UniRankHub](https://www.unirankhub.com)** — *Education Data Intelligence*  
-  A global university ranking comparison platform with custom indicator weighting, historical trajectory analytics, and geospatial search across QS, THE, ARWU, and US News.
-* **[VisaDuo](https://www.visaduo.com)** — *Global Mobility Tech*  
-  A bilingual visa pathway planner offering side-by-side route comparisons, interactive document checklists, and official immigration policy tracking.
-
----
-
-### 🛠️ Technical Stack
-
-* **Product & Frontend:** Next.js, React 19, TypeScript, Tailwind CSS, Payload CMS
-* **Backend & Data:** PostgreSQL (Supabase / Neon), Upstash Redis, Python, C# / .NET
-* **AI & Infrastructure:** Multi-Model LLM Evaluation Pipelines, Speech-to-Text / TTS, Cloudflare R2, Stripe Billing, Vercel, Docker
-
----
-
-### 📬 Get in Touch
-
-This blog is where I document engineering deep dives, product-building notes, and annual reflections. If something here resonates with you, feel free to reach out:
-
-* **Email:** [jinhong.zhu@gatech.edu](mailto:jinhong.zhu@gatech.edu)
-* **LinkedIn:** [linkedin.com/in/jinhong-zhu](https://www.linkedin.com/in/jinhong-zhu)
-* **GitHub:** [github.com/Flowers2Algernon](https://github.com/Flowers2Algernon)
+<script src="/assets/js/lib/hacker-typer.js"></script>
